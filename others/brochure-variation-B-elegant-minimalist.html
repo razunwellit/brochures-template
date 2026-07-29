@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Brochure - Elegant Minimalist</title>
+    <style>
+        :root {
+            --brand-red: #D11F26;
+            --brand-gray: #818181;
+            --brand-black: #000000;
+            --brand-white: #FFFFFF;
+            
+            --color-primary: var(--brand-gray);
+            --color-accent: var(--brand-red);
+            --color-text: #2A2A2A;
+            --color-text-light: #6A6A6A;
+            --color-bg: var(--brand-white);
+            --color-surface: #FAFAFA;
+            --color-border: #E8E8E8;
+            
+            --font-heading: 'Georgia', 'Times New Roman', serif;
+            --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            
+            --page-padding: 25mm;
+            --space-xs: 5mm;
+            --space-sm: 10mm;
+            --space-md: 15mm;
+            --space-lg: 25mm;
+            --space-xl: 35mm;
+        }
+        
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            font-size: 10pt;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: #E0E0E0;
+            line-height: 1.7;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            padding: var(--page-padding);
+            margin: 20px auto;
+            background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .page:last-child {
+            page-break-after: auto;
+        }
+        
+        @media print {
+            body { background: white; }
+            .page { margin: 0; box-shadow: none; }
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.3;
+            color: var(--color-text);
+            letter-spacing: 0.01em;
+        }
+        
+        h1 { 
+            font-size: 2.8rem; 
+            font-weight: 300;
+            margin-bottom: var(--space-md);
+        }
+        
+        h2 { 
+            font-size: 2rem; 
+            font-weight: 400;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        h3 { 
+            font-size: 1.4rem; 
+            font-weight: 400;
+            margin-bottom: var(--space-sm);
+        }
+        
+        h4 { 
+            font-size: 1.1rem; 
+            font-weight: 400;
+            margin-bottom: var(--space-xs);
+        }
+        
+        p {
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-light);
+            font-weight: 300;
+        }
+        
+        .placeholder {
+            background: var(--color-surface);
+            border: 1px dashed var(--brand-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--brand-gray);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: var(--space-md);
+            left: var(--page-padding);
+            right: var(--page-padding);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--brand-gray);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: var(--brand-red);
+            margin: var(--space-md) 0;
+        }
+        
+        .elegant-grid {
+            display: grid;
+            gap: var(--space-lg);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--space-md) 0;
+        }
+        
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--brand-gray);
+            display: block;
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .stat-text {
+            font-size: 0.75rem;
+            color: var(--brand-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 300;
+        }
+        
+        .feature-box {
+            padding: var(--space-md);
+            background: var(--color-surface);
+            margin-bottom: var(--space-md);
+        }
+        
+        .feature-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--color-text);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .toc-list {
+            list-style: none;
+        }
+        
+        .toc-item {
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .toc-number {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--brand-gray);
+            width: 50px;
+        }
+        
+        .toc-title {
+            flex: 1;
+            font-size: 1rem;
+            color: var(--color-text);
+            letter-spacing: 0.05em;
+        }
+        
+        .price-display {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--brand-red);
+            margin: var(--space-lg) 0;
+            letter-spacing: 0.02em;
+        }
+        
+        .minimal-box {
+            border: 1px solid var(--color-border);
+            padding: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+        
+        .contact-section {
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-top: var(--space-md);
+        }
+        
+        .contact-item {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .contact-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--brand-gray);
+            margin-bottom: var(--space-xs);
+            font-weight: 300;
+        }
+        
+        .contact-value {
+            font-size: 1rem;
+            color: var(--color-text);
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1: COVER -->
+    <section class="page">
+        <div style="margin-bottom: var(--space-xl);">
+            <div class="placeholder" style="height: 80px; width: 150px;">Estate Logo</div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h1>Exceptional Living<br>Awaits</h1>
+        
+        <p style="font-size: 1.1rem; margin-bottom: var(--space-lg);">123 Luxury Avenue, Prestige Suburb</p>
+        
+        <div class="price-display">$2,450,000</div>
+        
+        <div class="placeholder" style="height: 350px; margin-top: var(--space-lg);">Featured Property Image</div>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>2025</span>
+        </div>
+    </section>
+    
+    <!-- PAGE 2: TABLE OF CONTENTS -->
+    <section class="page">
+        <h2>Contents</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: var(--space-xl); margin-top: var(--space-lg);">
+            <div>
+                <div class="placeholder" style="height: 350px; margin-bottom: var(--space-md);">Property Image</div>
+                <p style="font-size: 0.85rem; line-height: 1.8;">A residence of distinction, offering unparalleled luxury and sophistication in one of the most coveted addresses.</p>
+            </div>
+            
+            <div>
+                <ul class="toc-list">
+                    <li class="toc-item">
+                        <span class="toc-number">01</span>
+                        <span class="toc-title">Estate Overview</span>
+                    </li>
+                    <li class="toc-item">
+                        <span class="toc-number">02</span>
+                        <span class="toc-title">Property Details</span>
+                    </li>
+                    <li class="toc-item">
+                        <span class="toc-number">03</span>
+                        <span class="toc-title">Floor Plans</span>
+                    </li>
+                    <li class="toc-item">
+                        <span class="toc-number">04</span>
+                        <span class="toc-title">Disclosure Plan</span>
+                    </li>
+                    <li class="toc-item">
+                        <span class="toc-number">05</span>
+                        <span class="toc-title">Inclusions</span>
+                    </li>
+                    <li class="toc-item">
+                        <span class="toc-number">06</span>
+                        <span class="toc-title">Suburb Profile</span>
+                    </li>
+                    <li class="toc-item">
+                        <span class="toc-number">07</span>
+                        <span class="toc-title">Location & Amenities</span>
+                    </li>
+                    <li class="toc-item">
+                        <span class="toc-number">08</span>
+                        <span class="toc-title">About RP Prospects</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>Page 2</span>
+        </div>
+    </section>
+    
+    <!-- PAGE 3: ESTATE OVERVIEW -->
+    <section class="page">
+        <h2>Estate Overview</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-top: var(--space-lg);">
+            <div class="placeholder" style="height: 300px;">Master Plan</div>
+            <div class="placeholder" style="height: 300px;">Estate Logo</div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <h3>About The Estate</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>Page 3</span>
+        </div>
+    </section>
+    
+    <!-- PAGE 4: PROPERTY FLYER -->
+    <section class="page">
+        <h2>Property Details</h2>
+        
+        <div class="placeholder" style="height: 320px; margin-bottom: var(--space-lg);">Featured Image</div>
+        
+        <h3>123 Luxury Avenue</h3>
+        <p style="font-size: 1rem; color: var(--brand-gray); margin-bottom: var(--space-md);">Prestige Suburb, State 4567</p>
+        
+        <div class="price-display">$2,450,000</div>
+        
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); margin: var(--space-lg) 0;">
+            <div class="stat-item">
+                <span class="stat-number">5</span>
+                <span class="stat-text">Bedrooms</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-text">Bathrooms</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-text">Garages</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">850</span>
+                <span class="stat-text">Land m²</span>
+            </div>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md);">
+            <div class="placeholder" style="height: 160px;">Aerial View 1</div>
+            <div class="placeholder" style="height: 160px;">Aerial View 2</div>
+        </div>
+        
+        <p style="font-size: 0.7rem; color: var(--brand-gray); margin-top: var(--space-md); line-height: 1.6;"><strong>Disclaimer:</strong> All information is gathered from sources we consider reliable. We cannot guarantee accuracy. Interested parties should rely on their own enquiries.</p>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>Page 4</span>
+        </div>
+    </section>
+    
+    <!-- PAGE 5: FLOOR PLAN -->
+    <section class="page">
+        <h2>Floor Plan</h2>
+        
+        <div class="placeholder" style="height: 420px; margin-bottom: var(--space-lg);">Floor Plan</div>
+        
+        <div class="divider"></div>
+        
+        <h3>Property Specifications</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-top: var(--space-md);">
+            <div class="stat-item">
+                <span class="stat-number">5</span>
+                <span class="stat-text">Bedrooms</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-text">Bathrooms</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-text">Garages</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">850</span>
+                <span class="stat-text">Land m²</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">520</span>
+                <span class="stat-text">Build m²</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2</span>
+                <span class="stat-text">Storeys</span>
+            </div>
+        </div>
+        
+        <p style="font-size: 0.7rem; color: var(--brand-gray); margin-top: var(--space-lg); line-height: 1.6;"><strong>Disclaimer:</strong> Floor plan is for illustrative purposes only. All dimensions are approximate and may vary.</p>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>Page 5</span>
+        </div>
+    </section>
+    
+    <!-- PAGE 6: DISCLOSURE PLAN -->
+    <section class="page">
+        <h2>Disclosure Plan</h2>
+        
+        <div class="placeholder" style="height: 600px; margin-top: var(--space-lg);">Disclosure Plan</div>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>Page 6</span>
+        </div>
+    </section>
+    
+    <!-- PAGE 7: INCLUSIONS -->
+    <section class="page">
+        <h2>Inclusions</h2>
+        
+        <p style="margin-bottom: var(--space-lg);">Premium features and finishes included in your new home.</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);">
+            <div class="feature-box">
+                <div class="placeholder" style="height: 130px; margin-bottom: var(--space-sm);">Kitchen Image</div>
+                <div class="feature-title">Gourmet Kitchen</div>
+                <p style="font-size: 0.85rem;">Premium stone benchtops, stainless steel appliances, soft-close cabinetry throughout.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="placeholder" style="height: 130px; margin-bottom: var(--space-sm);">Bathroom Image</div>
+                <div class="feature-title">Luxury Bathrooms</div>
+                <p style="font-size: 0.85rem;">Floor-to-ceiling tiles, frameless shower screens, premium fixtures and fittings.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="placeholder" style="height: 130px; margin-bottom: var(--space-sm);">Flooring Image</div>
+                <div class="feature-title">Premium Flooring</div>
+                <p style="font-size: 0.85rem;">Engineered timber flooring to living areas, premium carpet to bedrooms.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="placeholder" style="height: 130px; margin-bottom: var(--space-sm);">Climate Image</div>
+                <div class="feature-title">Climate Control</div>
+                <p style="font-size: 0.85rem;">Ducted reverse-cycle air conditioning throughout, ceiling fans to all bedrooms.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="placeholder" style="height: 130px; margin-bottom: var(--space-sm);">Smart Home Image</div>
+                <div class="feature-title">Smart Home</div>
+                <p style="font-size: 0.85rem;">Integrated smart home system with automated lighting and security features.</p>
+            </div>
+            
+            <div class="feature-box">
+                <div class="placeholder" style="height: 130px; margin-bottom: var(--space-sm);">Outdoor Image</div>
+                <div class="feature-title">Outdoor Living</div>
+                <p style="font-size: 0.85rem;">Alfresco entertaining area, landscaped gardens, automated irrigation system.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>Page 7</span>
+        </div>
+    </section>
+    
+    <!-- PAGE 8: SUBURB INFORMATION -->
+    <section class="page">
+        <h2>Suburb Profile</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin: var(--space-lg) 0;">
+            <div class="stat-item">
+                <span class="stat-number">18,500</span>
+                <span class="stat-text">Population</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">12km</span>
+                <span class="stat-text">To CBD</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">$1.8M</span>
+                <span class="stat-text">Median Price</span>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin-top: var(--space-lg);">
+            <div>
+                <h4>About The Suburb</h4>
+                <p style="font-size: 0.85rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                <h4 style="margin-top: var(--space-md);">Schools</h4>
+                <p style="font-size: 0.85rem;">Multiple highly-rated schools including public, private, and independent institutions within close proximity.</p>
+                
+                <h4 style="margin-top: var(--space-md);">Transport</h4>
+                <p style="font-size: 0.85rem;">Excellent connectivity with multiple bus routes, nearby train station, and easy freeway access.</p>
+            </div>
+            
+            <div>
+                <h4>Lifestyle</h4>
+                <p style="font-size: 0.85rem;">Vibrant lifestyle with trendy cafes, boutique shopping, parks, and recreational facilities at your doorstep.</p>
+                
+                <h4 style="margin-top: var(--space-md);">Shopping</h4>
+                <p style="font-size: 0.85rem;">Major shopping centres nearby with supermarkets, specialty stores, and dining options.</p>
+                
+                <h4 style="margin-top: var(--space-md);">Demographics</h4>
+                <p style="font-size: 0.85rem;">Diverse community with mix of young professionals, families, and established residents.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>Page 8</span>
+        </div>
+    </section>
+    
+    <!-- PAGE 9: LOCATION & AMENITIES -->
+    <section class="page">
+        <h2>Location & Amenities</h2>
+        
+        <div class="placeholder" style="height: 280px; margin: var(--space-lg) 0;">Aerial Location Image</div>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); margin-bottom: var(--space-lg);">
+            <div class="minimal-box">
+                <h4 style="font-size: 0.9rem;">Schools</h4>
+                <p style="font-size: 0.85rem;">6 within 2km radius</p>
+            </div>
+            <div class="minimal-box">
+                <h4 style="font-size: 0.9rem;">Hospitals</h4>
+                <p style="font-size: 0.85rem;">2 within 5km radius</p>
+            </div>
+            <div class="minimal-box">
+                <h4 style="font-size: 0.9rem;">Shopping</h4>
+                <p style="font-size: 0.85rem;">3 major centres nearby</p>
+            </div>
+            <div class="minimal-box">
+                <h4 style="font-size: 0.9rem;">Parks</h4>
+                <p style="font-size: 0.85rem;">5 parks within 1km</p>
+            </div>
+            <div class="minimal-box">
+                <h4 style="font-size: 0.9rem;">Restaurants</h4>
+                <p style="font-size: 0.85rem;">25+ dining options</p>
+            </div>
+            <div class="minimal-box">
+                <h4 style="font-size: 0.9rem;">Transport</h4>
+                <p style="font-size: 0.85rem;">Bus & Train access</p>
+            </div>
+        </div>
+        
+        <div class="placeholder" style="height: 200px;">Location Map</div>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>Page 9</span>
+        </div>
+    </section>
+    
+    <!-- PAGE 10: ABOUT THE COMPANY -->
+    <section class="page">
+        <h2>About RP Prospects</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin: var(--space-lg) 0;">
+            <div class="placeholder" style="height: 160px;">RP Logo</div>
+            <div class="placeholder" style="height: 160px;">Company Logo</div>
+        </div>
+        
+        <h3>RP Prospects Pty Ltd</h3>
+        <p style="font-style: italic; color: var(--brand-gray); margin-bottom: var(--space-lg);">Your Trusted Partner in Premium Real Estate</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin-bottom: var(--space-lg);">
+            <div>
+                <h4>Our Mission</h4>
+                <p style="font-size: 0.85rem;">To provide exceptional real estate services with integrity, professionalism, and dedication to our clients' success.</p>
+                
+                <h4 style="margin-top: var(--space-md);">Our Vision</h4>
+                <p style="font-size: 0.85rem;">To be the most trusted and respected real estate agency, known for excellence and client satisfaction.</p>
+            </div>
+            
+            <div>
+                <h4>Core Values</h4>
+                <p style="font-size: 0.85rem;">Integrity, Excellence, Client Focus, Innovation, and Community Partnership guide everything we do.</p>
+                
+                <h4 style="margin-top: var(--space-md);">Why Choose Us</h4>
+                <p style="font-size: 0.85rem;">25+ years experience, 1000+ projects delivered, 98% client satisfaction rate.</p>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <h3>Contact Us</h3>
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-item">
+                        <div class="contact-label">Phone</div>
+                        <div class="contact-value">(02) 7252 5788</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">info@rpprospects.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Website</div>
+                        <div class="contact-value">www.rpprospects.com</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="contact-item">
+                        <div class="contact-label">QLD Office</div>
+                        <div class="contact-value">10A Flemington St, Hendra</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">NSW Office</div>
+                        <div class="contact-value">121 Castlereagh St, Sydney</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-label">Hours</div>
+                        <div class="contact-value">Mon-Fri 9am-6pm, Sat 10am-4pm</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="position: absolute; bottom: var(--space-xl); left: var(--page-padding); right: var(--page-padding); text-align: center;">
+            <div class="placeholder" style="height: 50px; width: 250px; margin: 0 auto;">Social Media Icons</div>
+        </div>
+        
+        <div class="footer">
+            <span>RP Prospects</span>
+            <span>Page 10</span>
+        </div>
+    </section>
+</body>
+</html>

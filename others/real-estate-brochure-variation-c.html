@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RP Prospects — Real Estate Property Brochure (Minimal Clean)</title>
+  <style>
+    /* ============================================================
+       VARIATION C — MINIMAL / CLEAN THEME
+       ============================================================ */
+    :root {
+      --color-primary: #111111;
+      --color-primary-light: #333333;
+      --color-accent: #b08d57;
+      --color-accent-light: #d4c4a0;
+      --color-text: #333333;
+      --color-text-light: #666666;
+      --color-text-muted: #aaaaaa;
+      --color-bg: #ffffff;
+      --color-bg-soft: #f9f9f7;
+      --color-bg-light: #f2f2f0;
+      --color-border: #e0e0e0;
+      --color-border-light: #f0f0ee;
+
+      --font-serif: "Georgia", "Times New Roman", serif;
+      --font-sans: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+      --spacing-xs: 4px;
+      --spacing-sm: 8px;
+      --spacing-md: 16px;
+      --spacing-lg: 24px;
+      --spacing-xl: 36px;
+      --spacing-2xl: 52px;
+
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-padding: 22mm;
+      --page-padding-top: 18mm;
+      --page-padding-bottom: 22mm;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { font-size: 10.5pt; line-height: 1.6; color: var(--color-text); background: #ddd; }
+    body { font-family: var(--font-sans); letter-spacing: 0.01em; }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-sans); font-weight: 300; color: var(--color-primary); line-height: 1.25; }
+    a { color: var(--color-accent); text-decoration: none; }
+    p { margin-bottom: var(--spacing-sm); }
+
+    .page {
+      width: var(--page-width); min-height: var(--page-height);
+      margin: 0 auto 20px;
+      padding: var(--page-padding-top) var(--page-padding) var(--page-padding-bottom);
+      background: var(--color-bg); position: relative; overflow: hidden;
+      page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    /* PLACEHOLDERS */
+    .placeholder {
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-light);
+      color: var(--color-text-muted);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center; flex-shrink: 0;
+    }
+    .ph-cover { width: 100%; height: 480px; }
+    .ph-hero { width: 100%; height: 300px; }
+    .ph-large { width: 100%; height: 260px; }
+    .ph-medium { width: 100%; height: 180px; }
+    .ph-small { width: 100%; height: 130px; }
+    .ph-logo { width: 110px; height: 110px; }
+    .ph-logo-sm { width: 70px; height: 70px; }
+    .ph-map { width: 100%; height: 160px; }
+    .ph-qr { width: 90px; height: 90px; }
+    .ph-aerial { width: 100%; height: 140px; }
+    .ph-inclusion { width: 100px; height: 75px; }
+    .ph-floorplan { width: 100%; height: 330px; }
+    .ph-disclosure { width: 100%; height: 510px; }
+
+    /* FOOTER */
+    .page-footer {
+      position: absolute; bottom: var(--spacing-md);
+      left: var(--page-padding); right: var(--page-padding);
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.65rem; color: var(--color-text-muted);
+      border-top: 0.5px solid var(--color-border);
+      padding-top: var(--spacing-sm);
+      text-transform: uppercase; letter-spacing: 1.5px;
+    }
+    .page-footer .pn { font-weight: 600; color: var(--color-primary); }
+
+    /* COMMON */
+    .thin-rule { width: 40px; height: 1px; background: var(--color-accent); margin-bottom: var(--spacing-lg); }
+    .section-title { font-size: 1.4rem; font-weight: 300; letter-spacing: 0.5px; margin-bottom: var(--spacing-sm); text-transform: uppercase; }
+    .section-subtitle { font-size: 0.85rem; color: var(--color-text-light); margin-bottom: var(--spacing-xl); font-weight: 300; }
+    .small-text { font-size: 0.75rem; color: var(--color-text-light); line-height: 1.5; }
+    .divider { border: none; border-top: 0.5px solid var(--color-border); margin: var(--spacing-lg) 0; }
+
+    /* COVER */
+    .cover-minimal { padding: 0; display: flex; flex-direction: column; }
+    .cover-minimal .hero-img { flex: 1; position: relative; }
+    .cover-minimal .hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: var(--spacing-2xl) var(--page-padding) var(--spacing-xl);
+      background: linear-gradient(to top, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.8) 70%, transparent 100%);
+    }
+    .cover-minimal .hero-content img { height: 40px; width: auto; margin-bottom: var(--spacing-md); }
+    .cover-minimal .cover-addr { font-family: var(--font-serif); font-size: 1.5rem; color: var(--color-primary); line-height: 1.3; margin-bottom: var(--spacing-xs); }
+    .cover-minimal .cover-price { font-size: 1.2rem; font-weight: 300; color: var(--color-accent); letter-spacing: 1px; margin-bottom: var(--spacing-sm); }
+    .cover-minimal .cover-date { font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 2px; }
+
+    /* TOC */
+    .toc-minimal { display: flex; gap: var(--spacing-2xl); }
+    .toc-minimal-left { flex: 0 0 35%; }
+    .toc-minimal-right { flex: 1; }
+    .toc-list { list-style: none; padding: 0; }
+    .toc-item {
+      display: flex; align-items: baseline; padding: 9px 0;
+      border-bottom: 0.5px solid var(--color-border-light); font-size: 0.85rem;
+    }
+    .toc-num { font-size: 0.7rem; color: var(--color-accent); width: 28px; flex-shrink: 0; text-transform: uppercase; letter-spacing: 1px; }
+    .toc-title { flex: 1; color: var(--color-primary); font-weight: 300; }
+
+    /* OVERVIEW */
+    .overview-header { display: flex; align-items: flex-start; gap: var(--spacing-lg); margin-bottom: var(--spacing-lg); }
+    .overview-logo { flex-shrink: 0; }
+    .overview-desc { column-count: 2; column-gap: var(--spacing-xl); font-size: 0.82rem; line-height: 1.7; color: var(--color-text-light); font-weight: 300; }
+
+    /* FLYER */
+    .price-badge-minimal {
+      display: inline-block; border: 1px solid var(--color-accent); color: var(--color-accent);
+      padding: 6px var(--spacing-lg); font-size: 1rem; font-weight: 300; letter-spacing: 1px;
+    }
+    .flyer-addr { font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-primary); margin: var(--spacing-md) 0 var(--spacing-sm); }
+    .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: var(--spacing-lg) 0; background: var(--color-border); }
+    .feature-card { text-align: center; padding: var(--spacing-md); background: var(--color-bg); }
+    .feature-icon { font-size: 1.2rem; margin-bottom: var(--spacing-xs); color: var(--color-accent); }
+    .feature-value { font-size: 1rem; font-weight: 400; color: var(--color-primary); }
+    .feature-label { font-size: 0.65rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .aerial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); }
+
+    /* SPECS */
+    .specs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--color-border); }
+    .specs-grid .info-card { background: var(--color-bg); padding: var(--spacing-md); margin: 0; border: none; }
+    .info-card-title { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-text-muted); margin-bottom: var(--spacing-xs); }
+    .info-card-value { font-size: 1rem; font-weight: 400; color: var(--color-primary); }
+
+    /* INCLUSIONS */
+    .inclusions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg) var(--spacing-xl); }
+    .inclusion-item { display: flex; gap: var(--spacing-md); align-items: flex-start; }
+    .inclusion-item .placeholder { flex-shrink: 0; }
+    .inclusion-content { flex: 1; }
+    .inclusion-title { font-size: 0.85rem; font-weight: 500; color: var(--color-primary); margin-bottom: var(--spacing-xs); text-transform: uppercase; letter-spacing: 0.5px; }
+    .inclusion-desc { font-size: 0.75rem; color: var(--color-text-light); line-height: 1.5; font-weight: 300; }
+
+    /* SUBURB */
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--color-border); margin-bottom: var(--spacing-xl); }
+    .stat-card { text-align: center; padding: var(--spacing-lg) var(--spacing-md); background: var(--color-bg); }
+    .stat-value { font-size: 1.6rem; font-weight: 300; color: var(--color-accent); font-family: var(--font-serif); }
+    .stat-label { font-size: 0.65rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 1.5px; margin-top: var(--spacing-xs); }
+    .suburb-section { margin-bottom: var(--spacing-lg); }
+    .suburb-section-title { font-size: 0.85rem; font-weight: 500; color: var(--color-primary); margin-bottom: var(--spacing-sm); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* AMENITIES */
+    .amenities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--color-border); margin-bottom: var(--spacing-lg); }
+    .amenity-card { padding: var(--spacing-md); background: var(--color-bg); text-align: center; }
+    .amenity-icon { font-size: 1.2rem; margin-bottom: var(--spacing-sm); }
+    .amenity-title { font-size: 0.75rem; font-weight: 500; color: var(--color-primary); margin-bottom: var(--spacing-xs); text-transform: uppercase; letter-spacing: 0.5px; }
+    .amenity-detail { font-size: 0.65rem; color: var(--color-text-muted); }
+
+    /* CONTACT */
+    .contact-layout { display: flex; gap: var(--spacing-2xl); margin-top: var(--spacing-xl); }
+    .contact-left { flex: 1; }
+    .contact-right { flex: 0 0 180px; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-md); }
+    .contact-info-item { margin-bottom: var(--spacing-md); }
+    .contact-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--color-text-muted); margin-bottom: 2px; }
+    .contact-value { font-size: 0.9rem; color: var(--color-primary); font-weight: 300; }
+    .contact-name { font-family: var(--font-serif); font-size: 1.15rem; color: var(--color-primary); margin-bottom: var(--spacing-xs); font-weight: 400; }
+    .contact-role { font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: var(--spacing-lg); text-transform: uppercase; letter-spacing: 1px; }
+
+    @media print {
+      html { background: none; }
+      body { margin: 0; }
+      .page { margin: 0; box-shadow: none; page-break-after: always; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page:last-child { page-break-after: auto; }
+    }
+    @media screen { .page { box-shadow: 0 1px 8px rgba(0,0,0,0.08); } }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 — COVER -->
+  <section class="page cover-minimal" id="page-1">
+    <div class="hero-img">
+      <div class="placeholder ph-cover">Featured Image</div>
+      <div class="hero-content">
+        <img src="https://rpprospects.com/wp-content/uploads/2025/03/rp_new_logo_default.png" alt="RP Prospects Logo">
+        <div class="cover-addr">123 Estate Avenue<br>Suburbia, ST 4567</div>
+        <div class="cover-price">$1,250,000</div>
+        <div class="cover-date">Registration Date: 01 January 2025</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 2 — TABLE OF CONTENTS -->
+  <section class="page" id="page-2">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">Contents</h2>
+    <p class="section-subtitle">123 Estate Avenue, Suburbia, ST 4567</p>
+    <div class="toc-minimal">
+      <div class="toc-minimal-left">
+        <div class="placeholder ph-medium" style="margin-bottom:var(--spacing-lg);">Featured Image</div>
+        <p class="small-text">Welcome to our premium property brochure. This document provides a comprehensive overview of this exceptional estate opportunity.</p>
+      </div>
+      <div class="toc-minimal-right">
+        <ul class="toc-list">
+          <li class="toc-item"><span class="toc-num">01</span><span class="toc-title">Estate Overview</span></li>
+          <li class="toc-item"><span class="toc-num">02</span><span class="toc-title">Property Flyer</span></li>
+          <li class="toc-item"><span class="toc-num">03</span><span class="toc-title">Floor Plan</span></li>
+          <li class="toc-item"><span class="toc-num">04</span><span class="toc-title">Disclosure Plan</span></li>
+          <li class="toc-item"><span class="toc-num">05</span><span class="toc-title">Inclusions</span></li>
+          <li class="toc-item"><span class="toc-num">06</span><span class="toc-title">Suburb Information</span></li>
+          <li class="toc-item"><span class="toc-num">07</span><span class="toc-title">Location &amp; Amenities</span></li>
+          <li class="toc-item"><span class="toc-num">08</span><span class="toc-title">Contact Information</span></li>
+          <li class="toc-item"><span class="toc-num">09</span><span class="toc-title">About RP Prospects</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="page-footer"><span>RP Prospects Pty Ltd</span><span class="pn">2</span></div>
+  </section>
+
+  <!-- PAGE 3 — ESTATE OVERVIEW -->
+  <section class="page" id="page-3">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">Estate Overview</h2>
+    <p class="section-subtitle">A premium living experience crafted for modern lifestyles</p>
+    <div class="overview-header">
+      <div class="overview-logo">
+        <img src="https://rpprospects.com/wp-content/uploads/2025/03/rp_new_logo_default.png" alt="RP Prospects Logo" style="height:50px; width:auto;">
+      </div>
+      <div style="flex:1;"><div class="placeholder ph-hero">Master Plan</div></div>
+    </div>
+    <div class="overview-desc">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.</p>
+      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+    </div>
+    <div class="page-footer"><span>RP Prospects Pty Ltd</span><span class="pn">3</span></div>
+  </section>
+
+  <!-- PAGE 4 — PROPERTY FLYER -->
+  <section class="page" id="page-4">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">Property Flyer</h2>
+    <div class="placeholder ph-hero">Featured Image</div>
+    <div class="flyer-addr">123 Estate Avenue, Suburbia, ST 4567</div>
+    <div class="price-badge-minimal">$1,250,000</div>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">&#9753;</div><div class="feature-value">4</div><div class="feature-label">Bedrooms</div></div>
+      <div class="feature-card"><div class="feature-icon">&#9684;</div><div class="feature-value">3</div><div class="feature-label">Bathrooms</div></div>
+      <div class="feature-card"><div class="feature-icon">&#9638;</div><div class="feature-value">2</div><div class="feature-label">Car Spaces</div></div>
+      <div class="feature-card"><div class="feature-icon">&#9633;</div><div class="feature-value">650 m&sup2;</div><div class="feature-label">Land Size</div></div>
+    </div>
+    <h4 style="font-size:0.8rem; margin-bottom:var(--spacing-sm); color:var(--color-primary); font-weight:300; text-transform:uppercase; letter-spacing:1px;">Aerial Views</h4>
+    <div class="aerial-grid">
+      <div class="placeholder ph-aerial">Aerial Image 1</div>
+      <div class="placeholder ph-aerial">Aerial Image 2</div>
+    </div>
+    <hr class="divider">
+    <p class="small-text"><strong>Disclaimer:</strong> All information contained herein is gathered from sources we consider to be reliable. However, we cannot guarantee or give any warranty about the information provided. Interested parties must solely rely on their own enquiries. Photography, renderings, and floor plans are for illustrative purposes only. Dimensions are approximate only.</p>
+    <div class="page-footer"><span>RP Prospects Pty Ltd</span><span class="pn">4</span></div>
+  </section>
+
+  <!-- PAGE 5 — FLOOR PLAN -->
+  <section class="page" id="page-5">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">Floor Plan</h2>
+    <p class="section-subtitle">123 Estate Avenue, Suburbia, ST 4567</p>
+    <div class="placeholder ph-floorplan">Floor Plan</div>
+    <div class="specs-grid">
+      <div class="info-card"><div class="info-card-title">Bedrooms</div><div class="info-card-value">4</div></div>
+      <div class="info-card"><div class="info-card-title">Bathrooms</div><div class="info-card-value">3</div></div>
+      <div class="info-card"><div class="info-card-title">Car Spaces</div><div class="info-card-value">2</div></div>
+      <div class="info-card"><div class="info-card-title">Land Size</div><div class="info-card-value">650 m&sup2;</div></div>
+      <div class="info-card"><div class="info-card-title">Build Size</div><div class="info-card-value">320 m&sup2;</div></div>
+      <div class="info-card"><div class="info-card-title">Storeys</div><div class="info-card-value">2</div></div>
+    </div>
+    <hr class="divider">
+    <p class="small-text"><strong>Disclaimer:</strong> Floor plan is for illustrative purposes only. All dimensions are approximate and may vary. Furniture layout shown is indicative only.</p>
+    <div class="page-footer"><span>RP Prospects Pty Ltd</span><span class="pn">5</span></div>
+  </section>
+
+  <!-- PAGE 6 — DISCLOSURE PLAN -->
+  <section class="page" id="page-6">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">Disclosure Plan</h2>
+    <p class="section-subtitle">123 Estate Avenue, Suburbia, ST 4567</p>
+    <div class="placeholder ph-disclosure">Disclosure Plan</div>
+    <div class="page-footer"><span>RP Prospects Pty Ltd</span><span class="pn">6</span></div>
+  </section>
+
+  <!-- PAGE 7 — INCLUSIONS -->
+  <section class="page" id="page-7">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">Inclusions</h2>
+    <p class="section-subtitle">Premium features and finishes included in your new home</p>
+    <div class="inclusions-grid">
+      <div class="inclusion-item">
+        <div class="placeholder ph-inclusion">Inclusion Image</div>
+        <div class="inclusion-content"><div class="inclusion-title">Gourmet Kitchen</div><p class="inclusion-desc">Premium stone benchtops, stainless steel appliances, soft-close cabinetry, and designer tapware throughout.</p></div>
+      </div>
+      <div class="inclusion-item">
+        <div class="placeholder ph-inclusion">Inclusion Image</div>
+        <div class="inclusion-content"><div class="inclusion-title">Designer Bathrooms</div><p class="inclusion-desc">Floor-to-ceiling tiles, frameless shower screens, freestanding bathtubs, and heated towel rails.</p></div>
+      </div>
+      <div class="inclusion-item">
+        <div class="placeholder ph-inclusion">Inclusion Image</div>
+        <div class="inclusion-content"><div class="inclusion-title">Flooring &amp; Finishes</div><p class="inclusion-desc">Engineered timber flooring to living areas, premium carpet to bedrooms, and brushed brass hardware throughout.</p></div>
+      </div>
+      <div class="inclusion-item">
+        <div class="placeholder ph-inclusion">Inclusion Image</div>
+        <div class="inclusion-content"><div class="inclusion-title">Climate Control</div><p class="inclusion-desc">Ducted reverse-cycle air conditioning, ceiling fans to all bedrooms, and double-glazed windows.</p></div>
+      </div>
+      <div class="inclusion-item">
+        <div class="placeholder ph-inclusion">Inclusion Image</div>
+        <div class="inclusion-content"><div class="inclusion-title">Smart Home Technology</div><p class="inclusion-desc">Integrated smart home system with automated lighting, security cameras, and keyless entry.</p></div>
+      </div>
+      <div class="inclusion-item">
+        <div class="placeholder ph-inclusion">Inclusion Image</div>
+        <div class="inclusion-content"><div class="inclusion-title">Outdoor Living</div><p class="inclusion-desc">Alfresco entertaining area, landscaped gardens, automated irrigation, and built-in BBQ area.</p></div>
+      </div>
+      <div class="inclusion-item">
+        <div class="placeholder ph-inclusion">Inclusion Image</div>
+        <div class="inclusion-content"><div class="inclusion-title">Laundry &amp; Storage</div><p class="inclusion-desc">Walk-in linen closet, integrated laundry with stone benchtop, and custom storage solutions.</p></div>
+      </div>
+      <div class="inclusion-item">
+        <div class="placeholder ph-inclusion">Inclusion Image</div>
+        <div class="inclusion-content"><div class="inclusion-title">Lighting &amp; Electrical</div><p class="inclusion-desc">LED downlights throughout, pendant lighting over kitchen island, and ample power points.</p></div>
+      </div>
+    </div>
+    <div class="page-footer"><span>RP Prospects Pty Ltd</span><span class="pn">7</span></div>
+  </section>
+
+  <!-- PAGE 8 — SUBURB INFORMATION -->
+  <section class="page" id="page-8">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">Suburb Information</h2>
+    <p class="section-subtitle">Discover everything this vibrant neighbourhood has to offer</p>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-value">15,200</div><div class="stat-label">Population</div></div>
+      <div class="stat-card"><div class="stat-value">8.2 km</div><div class="stat-label">To CBD</div></div>
+      <div class="stat-card"><div class="stat-value">$1.1M</div><div class="stat-label">Median Price</div></div>
+    </div>
+    <div style="display:flex; gap:var(--spacing-xl);">
+      <div style="flex:1;">
+        <div class="suburb-section"><div class="suburb-section-title">About the Suburb</div><p class="small-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p></div>
+        <div class="suburb-section"><div class="suburb-section-title">Schools</div><p class="small-text">The suburb is home to several highly rated schools including public, private, and independent institutions. Quality education options are available from kindergarten through to senior secondary levels.</p></div>
+        <div class="suburb-section"><div class="suburb-section-title">Transport</div><p class="small-text">Excellent connectivity with multiple bus routes, a nearby train station, and easy freeway access. Public transport links provide convenient commuting options to the CBD.</p></div>
+      </div>
+      <div style="flex:1;">
+        <div class="suburb-section"><div class="suburb-section-title">Lifestyle</div><p class="small-text">Enjoy a vibrant lifestyle with trendy cafes, boutique shopping, parks, and recreational facilities at your doorstep. Known for its leafy streets and family-friendly atmosphere.</p></div>
+        <div class="suburb-section"><div class="suburb-section-title">Growth &amp; Development</div><p class="small-text">Significant growth with new infrastructure projects, commercial developments, and community amenities being added. A desirable area for homeowners and investors.</p></div>
+        <div class="suburb-section"><div class="suburb-section-title">Demographics</div><p class="small-text">A diverse community with young professionals, families, and established residents. High owner-occupier rates and strong community involvement.</p></div>
+      </div>
+    </div>
+    <div class="page-footer"><span>RP Prospects Pty Ltd</span><span class="pn">8</span></div>
+  </section>
+
+  <!-- PAGE 9 — LOCATION & AMENITIES -->
+  <section class="page" id="page-9">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">Location &amp; Amenities</h2>
+    <p class="section-subtitle">Everything you need is just moments away</p>
+    <div class="placeholder ph-large" style="margin-bottom:var(--spacing-lg);">Aerial Image</div>
+    <div class="amenities-grid">
+      <div class="amenity-card"><div class="amenity-icon">&#127979;</div><div class="amenity-title">Schools</div><div class="amenity-detail">5 within 2km</div></div>
+      <div class="amenity-card"><div class="amenity-icon">&#127794;</div><div class="amenity-title">Parks</div><div class="amenity-detail">3 within 1km</div></div>
+      <div class="amenity-card"><div class="amenity-icon">&#128722;</div><div class="amenity-title">Shopping</div><div class="amenity-detail">2 centres nearby</div></div>
+      <div class="amenity-card"><div class="amenity-icon">&#9764;</div><div class="amenity-title">Hospitals</div><div class="amenity-detail">1 within 3km</div></div>
+      <div class="amenity-card"><div class="amenity-icon">&#128652;</div><div class="amenity-title">Public Transport</div><div class="amenity-detail">Bus &amp; Train</div></div>
+      <div class="amenity-card"><div class="amenity-icon">&#9749;</div><div class="amenity-title">Restaurants</div><div class="amenity-detail">20+ nearby</div></div>
+    </div>
+    <div class="placeholder ph-map">Map Placeholder</div>
+    <div class="page-footer"><span>RP Prospects Pty Ltd</span><span class="pn">9</span></div>
+  </section>
+
+  <!-- PAGE 10 — CONTACT INFORMATION -->
+  <section class="page" id="page-10">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">Contact Information</h2>
+    <div style="display:flex; align-items:center; gap:var(--spacing-lg); margin-bottom:var(--spacing-xl);">
+      <img src="https://rpprospects.com/wp-content/uploads/2025/03/rp_new_logo_default.png" alt="RP Prospects Logo" style="height:60px; width:auto;">
+      <div>
+        <p class="small-text" style="font-size:0.8rem; color:var(--color-text-muted); text-transform:uppercase; letter-spacing:1px;">Downloaded by</p>
+        <p style="font-size:0.95rem; font-weight:400; color:var(--color-primary);">[Downloader Name]</p>
+        <p class="small-text">Date: [Download Date]</p>
+      </div>
+    </div>
+    <hr class="divider">
+    <div class="contact-layout">
+      <div class="contact-left">
+        <div class="contact-name">[Contact Person Name]</div>
+        <div class="contact-role">SMSF Property Specialist</div>
+        <div class="contact-info-item"><div class="contact-label">Company</div><div class="contact-value">RP Prospects Pty Ltd</div></div>
+        <div class="contact-info-item"><div class="contact-label">Phone</div><div class="contact-value">(02) 7252 5788</div></div>
+        <div class="contact-info-item"><div class="contact-label">Email</div><div class="contact-value">smsf@rpprospects.com</div></div>
+        <div class="contact-info-item"><div class="contact-label">Website</div><div class="contact-value">www.rpprospects.com</div></div>
+        <div class="contact-info-item"><div class="contact-label">QLD Office</div><div class="contact-value">10A Flemington St., Hendra</div></div>
+        <div class="contact-info-item"><div class="contact-label">NSW Office</div><div class="contact-value">121 Castlereagh St, Sydney</div></div>
+      </div>
+      <div class="contact-right">
+        <div class="placeholder ph-qr">QR Code</div>
+        <p class="small-text" style="text-align:center;">Scan to view listing online</p>
+      </div>
+    </div>
+    <div class="page-footer"><span>RP Prospects Pty Ltd</span><span class="pn">10</span></div>
+  </section>
+
+  <!-- PAGE 11 — ABOUT RP PROSPECTS -->
+  <section class="page" id="page-11">
+    <div class="thin-rule"></div>
+    <h2 class="section-title">About RP Prospects</h2>
+    <p class="section-subtitle">Australia's #1 SMSF Portal &mdash; End-to-End Self-Managed Super Fund Solutions</p>
+    <div style="display:flex; align-items:center; gap:var(--spacing-lg); margin-bottom:var(--spacing-lg);">
+      <img src="https://rpprospects.com/wp-content/uploads/2025/03/rp_new_logo_default.png" alt="RP Prospects Logo" style="height:55px; width:auto;">
+      <div>
+        <h3 style="font-size:1rem; font-weight:400; margin-bottom:var(--spacing-xs);">RP Prospects Pty Ltd</h3>
+        <p class="small-text" style="font-size:0.8rem;">Empowering your financial future, end to end.</p>
+      </div>
+    </div>
+    <hr class="divider">
+    <div style="display:flex; gap:var(--spacing-xl); margin-bottom:var(--spacing-lg);">
+      <div style="flex:1;">
+        <div class="suburb-section"><div class="suburb-section-title">Who We Are</div><p class="small-text">RP Prospects is an end-to-end platform specifically designed to enhance your Real Estate endeavors, whether you're a builder, a marketer, or an SMSF investor. From strategy to settlement, our solutions streamline every step of the property investment journey.</p></div>
+        <div class="suburb-section"><div class="suburb-section-title">What We Do</div><p class="small-text">We provide an all-in-one solution for bringing transparency, efficiency, and simplicity to the property investment process. Our platform caters to Real Estate Buyers, Marketing Groups, and Builders Groups with expert-designed tools.</p></div>
+      </div>
+      <div style="flex:1;">
+        <div class="suburb-section"><div class="suburb-section-title">Our Services</div>
+          <p class="small-text"><strong>Exclusive SMSF Property Listings</strong> &mdash; Hand-selected investment opportunities across Australia, fully vetted for SMSF eligibility.</p>
+          <p class="small-text" style="margin-top:var(--spacing-sm);"><strong>Smarter Investment Tools</strong> &mdash; Navigate property selection, compliance management, and portfolio tracking with intuitive tools.</p>
+          <p class="small-text" style="margin-top:var(--spacing-sm);"><strong>SMSF Property Calculator</strong> &mdash; Effortlessly convert land and build contracts into a single-part contract.</p>
+          <p class="small-text" style="margin-top:var(--spacing-sm);"><strong>Expression of Interest</strong> &mdash; Online EOI forms for buyers to reserve properties and sellers to track inventory.</p>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div style="display:flex; gap:var(--spacing-xl);">
+      <div style="flex:1;"><div class="suburb-section"><div class="suburb-section-title">QLD Office</div><p class="small-text">10A Flemington St., Hendra</p></div></div>
+      <div style="flex:1;"><div class="suburb-section"><div class="suburb-section-title">NSW Office</div><p class="small-text">121 Castlereagh St, Sydney</p></div></div>
+      <div style="flex:1;"><div class="suburb-section"><div class="suburb-section-title">Get In Touch</div><p class="small-text">Phone: (02) 7252 5788<br>Email: smsf@rpprospects.com<br>Web: www.rpprospects.com</p></div></div>
+    </div>
+    <div style="display:flex; gap:var(--spacing-md); margin-top:var(--spacing-lg);">
+      <span class="small-text">LinkedIn</span><span class="small-text">|</span>
+      <span class="small-text">Instagram</span><span class="small-text">|</span>
+      <span class="small-text">Facebook</span><span class="small-text">|</span>
+      <span class="small-text">YouTube</span>
+    </div>
+    <div class="page-footer"><span>RP Prospects Pty Ltd &mdash; All Rights Reserved</span><span class="pn">11</span></div>
+  </section>
+
+</body>
+</html>

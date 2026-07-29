@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Brochure - Classic RP Luxury</title>
+    <!--
+        Real Estate Brochure Template - Variation 01: Classic RP Luxury
+        Brand: RP Prospects (https://rpprospects.com/)
+        Palette: RP Red #CF2027, RP Gray #818181, White, Dark Charcoal
+        Pages: 10 A4 portrait pages
+        All images are placeholder boxes. No external images used.
+    -->
+    <style>
+        /* =========================================================
+           CSS VARIABLES & DESIGN TOKENS
+           ========================================================= */
+        :root {
+            /* RP Prospects brand colours */
+            --rp-red: #CF2027;
+            --rp-red-dark: #A61A1F;
+            --rp-gray: #818181;
+            --rp-gray-light: #F5F5F5;
+            --rp-gray-border: #E0E0E0;
+
+            /* Template semantic variables */
+            --color-primary: var(--rp-red);
+            --color-primary-dark: var(--rp-red-dark);
+            --color-secondary: var(--rp-gray);
+            --color-bg: #FFFFFF;
+            --color-surface: var(--rp-gray-light);
+            --color-text: #1A1A1A;
+            --color-text-light: #555555;
+            --color-muted: #9E9E9E;
+            --color-border: var(--rp-gray-border);
+
+            /* Typography - system fonts only */
+            --font-heading: Georgia, "Times New Roman", serif;
+            --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+            /* Spacing */
+            --page-padding: 15mm;
+            --space-xs: 4mm;
+            --space-sm: 6mm;
+            --space-md: 10mm;
+            --space-lg: 15mm;
+            --space-xl: 22mm;
+
+            /* Components */
+            --radius: 6px;
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            --shadow-strong: 0 8px 28px rgba(0, 0, 0, 0.10);
+        }
+
+        /* =========================================================
+           PRINT SETUP
+           ========================================================= */
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        /* =========================================================
+           BASE RESET
+           ========================================================= */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 10pt;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: #ECECEC;
+            line-height: 1.55;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* =========================================================
+           BROCHURE & PAGE SHELL
+           ========================================================= */
+        .brochure {
+            width: 100%;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            height: 297mm;
+            padding: var(--page-padding);
+            margin: 20px auto;
+            background: var(--color-bg);
+            position: relative;
+            overflow: hidden;
+            page-break-after: always;
+            box-shadow: var(--shadow-strong);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        /* Hide screen-only shadows when printing */
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+
+        /* =========================================================
+           TYPOGRAPHY
+           ========================================================= */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.2;
+            color: var(--color-text);
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 1.9rem; }
+        h3 { font-size: 1.25rem; }
+        h4 { font-size: 1rem; }
+
+        p {
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-light);
+        }
+
+        .text-primary { color: var(--color-primary); }
+        .text-secondary { color: var(--color-secondary); }
+        .text-muted { color: var(--color-muted); }
+
+        .label {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        /* =========================================================
+           PLACEHOLDER COMPONENT
+           ========================================================= */
+        .placeholder {
+            border: 2px dashed var(--color-secondary);
+            background: var(--color-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-secondary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            overflow: hidden;
+        }
+
+        .placeholder span {
+            padding: 8px;
+        }
+
+        /* =========================================================
+           CARDS & GRIDS
+           ========================================================= */
+        .card {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: var(--space-md);
+            box-shadow: var(--shadow);
+        }
+
+        .card-dark {
+            background: var(--color-text);
+            color: white;
+            border: none;
+        }
+
+        .card-dark h3,
+        .card-dark h4,
+        .card-dark p {
+            color: white;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-sm);
+        }
+
+        /* =========================================================
+           PAGE FOOTER
+           ========================================================= */
+        .page-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 12mm;
+            padding: 0 var(--page-padding);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--color-muted);
+            border-top: 1px solid var(--color-border);
+            background: var(--color-bg);
+        }
+
+        .page-cover .page-footer {
+            display: none;
+        }
+
+        /* =========================================================
+           PAGE 1 — COVER
+           ========================================================= */
+        .page-cover {
+            padding: 0;
+        }
+
+        .cover-top-bar {
+            height: 8mm;
+            background: var(--color-primary);
+        }
+
+        .cover-header {
+            padding: var(--space-md) var(--page-padding);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cover-logo {
+            width: 55mm;
+            height: 18mm;
+        }
+
+        .cover-registration {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--color-muted);
+        }
+
+        .cover-image {
+            flex: 1;
+            margin: 0 var(--page-padding);
+            min-height: 160mm;
+            border-radius: var(--radius);
+        }
+
+        .cover-image span {
+            font-size: 1.1rem;
+        }
+
+        .cover-footer-band {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-md) var(--page-padding);
+            margin-top: auto;
+        }
+
+        .cover-footer-band h1 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .cover-footer-band .cover-address {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: var(--space-sm);
+        }
+
+        .cover-price {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        /* =========================================================
+           PAGE 2 — TABLE OF CONTENTS
+           ========================================================= */
+        .toc-header {
+            display: grid;
+            grid-template-columns: 1fr 55mm;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+            align-items: center;
+        }
+
+        .toc-title-block h2 {
+            margin-bottom: var(--space-xs);
+        }
+
+        .toc-image {
+            width: 100%;
+            height: 38mm;
+            border-radius: var(--radius);
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-list li {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 1rem;
+        }
+
+        .toc-list li:first-child {
+            border-top: 1px solid var(--color-border);
+        }
+
+        .toc-list .toc-number {
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            margin-right: var(--space-sm);
+        }
+
+        .toc-list .toc-name {
+            flex: 1;
+        }
+
+        .toc-list .toc-page {
+            color: var(--color-muted);
+            font-size: 0.85rem;
+        }
+
+        /* =========================================================
+           PAGE 3 — ESTATE OVERVIEW
+           ========================================================= */
+        .overview-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--space-lg);
+            flex: 1;
+        }
+
+        .master-plan {
+            width: 100%;
+            height: 100%;
+            min-height: 200mm;
+            border-radius: var(--radius);
+        }
+
+        .overview-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .overview-logo {
+            width: 45mm;
+            height: 16mm;
+        }
+
+        .overview-text p {
+            margin-bottom: var(--space-sm);
+        }
+
+        .overview-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-sm);
+            margin-top: auto;
+        }
+
+        .highlight-box {
+            background: var(--color-surface);
+            padding: var(--space-sm);
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .highlight-box strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--color-text);
+        }
+
+        /* =========================================================
+           PAGE 4 — PROPERTY FLYER
+           ========================================================= */
+        .flyer-hero {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .flyer-featured {
+            width: 100%;
+            height: 95mm;
+            border-radius: var(--radius);
+        }
+
+        .flyer-info-card {
+            background: var(--color-text);
+            color: white;
+            border-radius: var(--radius);
+            padding: var(--space-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .flyer-info-card h2 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .flyer-price {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .flyer-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-sm);
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .feature-item .feature-value {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: white;
+        }
+
+        .feature-item .feature-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-muted);
+        }
+
+        .flyer-aerials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .flyer-aerial {
+            height: 45mm;
+            border-radius: var(--radius);
+        }
+
+        .disclaimer {
+            font-size: 0.7rem;
+            color: var(--color-muted);
+            line-height: 1.4;
+            padding: var(--space-sm);
+            background: var(--color-surface);
+            border-radius: var(--radius);
+            margin-top: auto;
+        }
+
+        /* =========================================================
+           PAGE 5 — FLOOR PLAN
+           ========================================================= */
+        .floorplan-layout {
+            display: grid;
+            grid-template-columns: 1fr 60mm;
+            gap: var(--space-md);
+            flex: 1;
+        }
+
+        .floorplan-image {
+            width: 100%;
+            height: 100%;
+            min-height: 215mm;
+            border-radius: var(--radius);
+        }
+
+        .floorplan-specs {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .floorplan-specs h2 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-row .spec-label {
+            color: var(--color-muted);
+            font-size: 0.85rem;
+        }
+
+        .spec-row .spec-value {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--color-text);
+        }
+
+        /* =========================================================
+           PAGE 6 — DISCLOSURE PLAN
+           ========================================================= */
+        .disclosure-page {
+            justify-content: center;
+        }
+
+        .disclosure-header {
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .disclosure-plan {
+            width: 100%;
+            height: 230mm;
+            border-radius: var(--radius);
+        }
+
+        /* =========================================================
+           PAGE 7 — INCLUSIONS
+           ========================================================= */
+        .inclusions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            flex: 1;
+        }
+
+        .inclusion-item {
+            display: grid;
+            grid-template-columns: 35mm 1fr;
+            gap: var(--space-sm);
+            align-items: center;
+            padding: var(--space-sm);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+        }
+
+        .inclusion-image {
+            width: 35mm;
+            height: 28mm;
+            border-radius: var(--radius);
+        }
+
+        .inclusion-content h4 {
+            margin-bottom: 2mm;
+            color: var(--color-primary);
+        }
+
+        .inclusion-content p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* =========================================================
+           PAGE 8 — SUBURB INFORMATION
+           ========================================================= */
+        .suburb-intro {
+            margin-bottom: var(--space-md);
+        }
+
+        .suburb-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            flex: 1;
+        }
+
+        .suburb-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--space-xs);
+            color: var(--color-primary);
+        }
+
+        .suburb-card p {
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-sm);
+            margin-top: var(--space-md);
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            padding: var(--space-sm);
+            text-align: center;
+            border-radius: var(--radius);
+            border-bottom: 3px solid var(--color-primary);
+        }
+
+        .stat-card .stat-value {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--color-muted);
+        }
+
+        /* =========================================================
+           PAGE 9 — LOCATION & AMENITIES
+           ========================================================= */
+        .location-hero {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .aerial-image {
+            width: 100%;
+            height: 80mm;
+            border-radius: var(--radius);
+        }
+
+        .map-image {
+            width: 100%;
+            height: 80mm;
+            border-radius: var(--radius);
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-sm);
+            flex: 1;
+        }
+
+        .amenity-card {
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: var(--space-sm);
+            text-align: center;
+        }
+
+        .amenity-icon {
+            width: 14mm;
+            height: 14mm;
+            margin: 0 auto var(--space-xs);
+            border-radius: 50%;
+        }
+
+        .amenity-card h4 {
+            font-size: 0.85rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .amenity-card p {
+            font-size: 0.7rem;
+            margin: 0;
+        }
+
+        /* =========================================================
+           PAGE 10 — ABOUT THE COMPANY
+           ========================================================= */
+        .company-header {
+            text-align: center;
+            margin-bottom: var(--space-md);
+        }
+
+        .company-logo {
+            width: 55mm;
+            height: 18mm;
+            margin: 0 auto var(--space-sm);
+        }
+
+        .company-tagline {
+            font-style: italic;
+            color: var(--color-secondary);
+            font-size: 1rem;
+        }
+
+        .company-intro-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .company-intro-grid .card h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--space-xs);
+            font-size: 1rem;
+        }
+
+        .company-intro-grid .card p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        .company-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .company-stat {
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: var(--space-md);
+            border-radius: var(--radius);
+        }
+
+        .company-stat .stat-value {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+        }
+
+        .company-stat .stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.9;
+        }
+
+        .company-contact-section {
+            display: grid;
+            grid-template-columns: 1fr 35mm;
+            gap: var(--space-md);
+            margin-top: auto;
+        }
+
+        .contact-info h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .contact-info p {
+            margin-bottom: var(--space-xs);
+            font-size: 0.9rem;
+        }
+
+        .qr-code {
+            width: 35mm;
+            height: 35mm;
+            border-radius: var(--radius);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: var(--space-sm);
+            margin-top: var(--space-sm);
+        }
+
+        .social-icon {
+            width: 10mm;
+            height: 10mm;
+            border-radius: 50%;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--color-muted);
+            margin-top: var(--space-md);
+        }
+    </style>
+</head>
+<body>
+    <main class="brochure">
+
+        <!-- PAGE 1: COVER -->
+        <section class="page page-cover" aria-label="Cover page">
+            <div class="cover-top-bar"></div>
+            <header class="cover-header">
+                <div class="placeholder cover-logo" aria-label="Estate logo placeholder">
+                    <span>Estate Logo</span>
+                </div>
+                <div class="cover-registration">
+                    <strong>Registration Date</strong><br>
+                    14 July 2026
+                </div>
+            </header>
+            <div class="placeholder cover-image" aria-label="Featured property image placeholder">
+                <span>Large Featured Image</span>
+            </div>
+            <div class="cover-footer-band">
+                <h1>Luxury Residence</h1>
+                <p class="cover-address">123 Prestige Avenue, Sydney NSW 2000</p>
+                <p class="cover-price">Total Package Price $1,250,000</p>
+            </div>
+        </section>
+
+        <!-- PAGE 2: TABLE OF CONTENTS -->
+        <section class="page" aria-label="Table of contents">
+            <div class="toc-header">
+                <div class="toc-title-block">
+                    <p class="label">Property Brochure</p>
+                    <h2>123 Prestige Avenue</h2>
+                    <p class="text-muted">A curated guide to your next premium residence.</p>
+                </div>
+                <div class="placeholder toc-image" aria-label="Small featured image placeholder">
+                    <span>Small Featured Image</span>
+                </div>
+            </div>
+            <ul class="toc-list">
+                <li><span class="toc-number">01</span><span class="toc-name">Estate Overview</span><span class="toc-page">Page 03</span></li>
+                <li><span class="toc-number">02</span><span class="toc-name">Property Flyer</span><span class="toc-page">Page 04</span></li>
+                <li><span class="toc-number">03</span><span class="toc-name">Floor Plan</span><span class="toc-page">Page 05</span></li>
+                <li><span class="toc-number">04</span><span class="toc-name">Disclosure Plan</span><span class="toc-page">Page 06</span></li>
+                <li><span class="toc-number">05</span><span class="toc-name">Inclusions</span><span class="toc-page">Page 07</span></li>
+                <li><span class="toc-number">06</span><span class="toc-name">Suburb Information</span><span class="toc-page">Page 08</span></li>
+                <li><span class="toc-number">07</span><span class="toc-name">Location &amp; Amenities</span><span class="toc-page">Page 09</span></li>
+                <li><span class="toc-number">08</span><span class="toc-name">About the Company</span><span class="toc-page">Page 10</span></li>
+            </ul>
+            <footer class="page-footer">
+                <span>RP Prospects</span>
+                <span>Page 2</span>
+            </footer>
+        </section>
+
+        <!-- PAGE 3: ESTATE OVERVIEW -->
+        <section class="page" aria-label="Estate overview">
+            <header style="margin-bottom: var(--space-md);">
+                <p class="label">Estate Overview</p>
+                <h2>Discover the Estate</h2>
+            </header>
+            <div class="overview-layout">
+                <div class="placeholder master-plan" aria-label="Master plan placeholder">
+                    <span>Master Plan</span>
+                </div>
+                <aside class="overview-sidebar">
+                    <div class="placeholder overview-logo" aria-label="Estate logo placeholder">
+                        <span>Estate Logo</span>
+                    </div>
+                    <div class="overview-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                    </div>
+                    <div class="overview-highlights">
+                        <div class="highlight-box"><strong>45</strong><span class="text-muted">Premium Lots</span></div>
+                        <div class="highlight-box"><strong>12</strong><span class="text-muted">Parks &amp; Gardens</span></div>
+                        <div class="highlight-box"><strong>3km</strong><span class="text-muted">To CBD</span></div>
+                        <div class="highlight-box"><strong>24/7</strong><span class="text-muted">Security</span></div>
+                    </div>
+                </aside>
+            </div>
+            <footer class="page-footer">
+                <span>RP Prospects</span>
+                <span>Page 3</span>
+            </footer>
+        </section>
+
+        <!-- PAGE 4: PROPERTY FLYER -->
+        <section class="page" aria-label="Property flyer">
+            <header style="margin-bottom: var(--space-md);">
+                <p class="label">Property Flyer</p>
+                <h2>123 Prestige Avenue, Sydney</h2>
+            </header>
+            <div class="flyer-hero">
+                <div class="placeholder flyer-featured" aria-label="Large featured property image placeholder">
+                    <span>Large Featured Image</span>
+                </div>
+                <div class="flyer-info-card">
+                    <h2>Total Package Price</h2>
+                    <p class="flyer-price">$1,250,000</p>
+                    <div class="flyer-features">
+                        <div class="feature-item">
+                            <div class="feature-value">4</div>
+                            <div class="feature-label">Bedrooms</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-value">2</div>
+                            <div class="feature-label">Bathrooms</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-value">2</div>
+                            <div class="feature-label">Car Spaces</div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-value">450m²</div>
+                            <div class="feature-label">Land Size</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flyer-aerials">
+                <div class="placeholder flyer-aerial" aria-label="Aerial image placeholder"><span>Aerial Image 1</span></div>
+                <div class="placeholder flyer-aerial" aria-label="Aerial image placeholder"><span>Aerial Image 2</span></div>
+                <div class="placeholder flyer-aerial" aria-label="Aerial image placeholder"><span>Aerial Image 3</span></div>
+            </div>
+            <div class="disclaimer">
+                <strong>Disclaimer:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. All information contained herein is provided as a guide only and is subject to change without notice. Images are representational only. Prospective purchasers should make their own enquiries to verify the information.
+            </div>
+            <footer class="page-footer">
+                <span>RP Prospects</span>
+                <span>Page 4</span>
+            </footer>
+        </section>
+
+        <!-- PAGE 5: FLOOR PLAN -->
+        <section class="page" aria-label="Floor plan">
+            <header style="margin-bottom: var(--space-md);">
+                <p class="label">Floor Plan</p>
+                <h2>123 Prestige Avenue, Sydney</h2>
+            </header>
+            <div class="floorplan-layout">
+                <div class="placeholder floorplan-image" aria-label="Floor plan placeholder">
+                    <span>Floor Plan</span>
+                </div>
+                <aside class="floorplan-specs card">
+                    <h2>Property Specifications</h2>
+                    <div class="spec-row">
+                        <span class="spec-label">Address</span>
+                        <span class="spec-value">123 Prestige Ave</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Bedrooms</span>
+                        <span class="spec-value">4</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Bathrooms</span>
+                        <span class="spec-value">2</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Car Spaces</span>
+                        <span class="spec-value">2</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Land Size</span>
+                        <span class="spec-value">450m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Build Size</span>
+                        <span class="spec-value">285m²</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Storeys</span>
+                        <span class="spec-value">2</span>
+                    </div>
+                    <p class="disclaimer" style="margin-top: auto;">
+                        <strong>Disclaimer:</strong> Floor plan dimensions are approximate. Please refer to final architectural plans for exact measurements.
+                    </p>
+                </aside>
+            </div>
+            <footer class="page-footer">
+                <span>RP Prospects</span>
+                <span>Page 5</span>
+            </footer>
+        </section>
+
+        <!-- PAGE 6: DISCLOSURE PLAN -->
+        <section class="page disclosure-page" aria-label="Disclosure plan">
+            <header class="disclosure-header">
+                <p class="label">Disclosure Plan</p>
+                <h2>123 Prestige Avenue, Sydney</h2>
+            </header>
+            <div class="placeholder disclosure-plan" aria-label="Disclosure plan placeholder">
+                <span>Disclosure Plan</span>
+            </div>
+            <p class="disclaimer" style="margin-top: var(--space-md);">
+                <strong>Disclaimer:</strong> This disclosure plan is provided for indicative purposes only. Boundaries, easements, and dimensions must be verified with the registered survey plan and legal advice sought where necessary.
+            </p>
+            <footer class="page-footer">
+                <span>RP Prospects</span>
+                <span>Page 6</span>
+            </footer>
+        </section>
+
+        <!-- PAGE 7: INCLUSIONS -->
+        <section class="page" aria-label="Inclusions">
+            <header style="margin-bottom: var(--space-md); text-align: center;">
+                <p class="label">Inclusions</p>
+                <h2>What's Included</h2>
+                <p class="text-muted">Premium finishes and inclusions as standard.</p>
+            </header>
+            <div class="inclusions-grid">
+                <article class="inclusion-item">
+                    <div class="placeholder inclusion-image" aria-label="Inclusion image placeholder"><span>Inclusion Image</span></div>
+                    <div class="inclusion-content">
+                        <h4>Designer Kitchen</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Premium appliances and stone benchtops.</p>
+                    </div>
+                </article>
+                <article class="inclusion-item">
+                    <div class="placeholder inclusion-image" aria-label="Inclusion image placeholder"><span>Inclusion Image</span></div>
+                    <div class="inclusion-content">
+                        <h4>Engineered Flooring</h4>
+                        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </article>
+                <article class="inclusion-item">
+                    <div class="placeholder inclusion-image" aria-label="Inclusion image placeholder"><span>Inclusion Image</span></div>
+                    <div class="inclusion-content">
+                        <h4>Ducted Air Conditioning</h4>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+                    </div>
+                </article>
+                <article class="inclusion-item">
+                    <div class="placeholder inclusion-image" aria-label="Inclusion image placeholder"><span>Inclusion Image</span></div>
+                    <div class="inclusion-content">
+                        <h4>Landscaped Gardens</h4>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+                    </div>
+                </article>
+                <article class="inclusion-item">
+                    <div class="placeholder inclusion-image" aria-label="Inclusion image placeholder"><span>Inclusion Image</span></div>
+                    <div class="inclusion-content">
+                        <h4>Smart Home Wiring</h4>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
+                    </div>
+                </article>
+                <article class="inclusion-item">
+                    <div class="placeholder inclusion-image" aria-label="Inclusion image placeholder"><span>Inclusion Image</span></div>
+                    <div class="inclusion-content">
+                        <h4>Security System</h4>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+                    </div>
+                </article>
+            </div>
+            <footer class="page-footer">
+                <span>RP Prospects</span>
+                <span>Page 7</span>
+            </footer>
+        </section>
+
+        <!-- PAGE 8: SUBURB INFORMATION -->
+        <section class="page" aria-label="Suburb information">
+            <header class="suburb-intro">
+                <p class="label">Suburb Information</p>
+                <h2>Live in Prestige</h2>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </header>
+            <div class="suburb-grid">
+                <article class="suburb-card card">
+                    <h3>About the Suburb</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </article>
+                <article class="suburb-card card">
+                    <h3>Lifestyle</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </article>
+                <article class="suburb-card card">
+                    <h3>Schools</h3>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </article>
+                <article class="suburb-card card">
+                    <h3>Public Transport</h3>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </article>
+                <article class="suburb-card card">
+                    <h3>Shopping</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </article>
+                <article class="suburb-card card">
+                    <h3>Parks &amp; Recreation</h3>
+                    <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
+                </article>
+            </div>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value">24,500</div>
+                    <div class="stat-label">Population</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">35%</div>
+                    <div class="stat-label">Families</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">6.2%</div>
+                    <div class="stat-label">Growth</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">$1.2M</div>
+                    <div class="stat-label">Median Price</div>
+                </div>
+            </div>
+            <footer class="page-footer">
+                <span>RP Prospects</span>
+                <span>Page 8</span>
+            </footer>
+        </section>
+
+        <!-- PAGE 9: LOCATION & AMENITIES -->
+        <section class="page" aria-label="Location and amenities">
+            <header style="margin-bottom: var(--space-md);">
+                <p class="label">Location &amp; Amenities</p>
+                <h2>Everything at Your Doorstep</h2>
+            </header>
+            <div class="location-hero">
+                <div class="placeholder aerial-image" aria-label="Large aerial image placeholder">
+                    <span>Large Aerial Image</span>
+                </div>
+                <div class="placeholder map-image" aria-label="Map placeholder">
+                    <span>Map Placeholder</span>
+                </div>
+            </div>
+            <div class="amenities-grid">
+                <article class="amenity-card">
+                    <div class="placeholder amenity-icon" aria-label="Schools icon placeholder"><span>Schools</span></div>
+                    <h4>Schools</h4>
+                    <p>Prestige Primary &amp; Secondary within 1km.</p>
+                </article>
+                <article class="amenity-card">
+                    <div class="placeholder amenity-icon" aria-label="Hospitals icon placeholder"><span>Hospitals</span></div>
+                    <h4>Hospitals</h4>
+                    <p>Metropolitan Hospital 3km away.</p>
+                </article>
+                <article class="amenity-card">
+                    <div class="placeholder amenity-icon" aria-label="Shopping icon placeholder"><span>Shopping</span></div>
+                    <h4>Shopping Centres</h4>
+                    <p>Prestige Mall 5 minutes drive.</p>
+                </article>
+                <article class="amenity-card">
+                    <div class="placeholder amenity-icon" aria-label="Parks icon placeholder"><span>Parks</span></div>
+                    <h4>Parks</h4>
+                    <p>Central Park and walking trails.</p>
+                </article>
+                <article class="amenity-card">
+                    <div class="placeholder amenity-icon" aria-label="Restaurants icon placeholder"><span>Restaurants</span></div>
+                    <h4>Restaurants</h4>
+                    <p>Dining precinct 800m away.</p>
+                </article>
+                <article class="amenity-card">
+                    <div class="placeholder amenity-icon" aria-label="Transport icon placeholder"><span>Transport</span></div>
+                    <h4>Public Transport</h4>
+                    <p>Bus and train connections nearby.</p>
+                </article>
+                <article class="amenity-card">
+                    <div class="placeholder amenity-icon" aria-label="Recreation icon placeholder"><span>Recreation</span></div>
+                    <h4>Recreation</h4>
+                    <p>Sports complex and aquatic centre.</p>
+                </article>
+                <article class="amenity-card">
+                    <div class="placeholder amenity-icon" aria-label="Cafes icon placeholder"><span>Cafes</span></div>
+                    <h4>Cafes</h4>
+                    <p>Local cafe culture and conveniences.</p>
+                </article>
+            </div>
+            <footer class="page-footer">
+                <span>RP Prospects</span>
+                <span>Page 9</span>
+            </footer>
+        </section>
+
+        <!-- PAGE 10: ABOUT THE COMPANY -->
+        <section class="page" aria-label="About the company">
+            <header class="company-header">
+                <div class="placeholder company-logo" aria-label="RP logo placeholder">
+                    <span>RP Logo</span>
+                </div>
+                <h2>RP Prospects</h2>
+                <p class="company-tagline">Australia's #1 SMSF Portal — End-to-End Real Estate Solutions</p>
+            </header>
+            <div class="company-intro-grid">
+                <article class="card">
+                    <h3>Our Mission</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </article>
+                <article class="card">
+                    <h3>Our Vision</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </article>
+                <article class="card">
+                    <h3>Core Values</h3>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </article>
+            </div>
+            <div class="company-stats">
+                <div class="company-stat">
+                    <div class="stat-value">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="company-stat">
+                    <div class="stat-value">500+</div>
+                    <div class="stat-label">Projects Delivered</div>
+                </div>
+                <div class="company-stat">
+                    <div class="stat-value">2,000+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+            </div>
+            <div class="company-contact-section">
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p><strong>Contact Person:</strong> John Smith, Senior Property Consultant</p>
+                    <p><strong>Phone:</strong> (02) 7252 5788</p>
+                    <p><strong>Email:</strong> smsf@rpprospects.com</p>
+                    <p><strong>Website:</strong> www.rpprospects.com</p>
+                    <p><strong>Office Address:</strong> 121 Castlereagh St, Sydney NSW 2000</p>
+                    <div class="social-icons">
+                        <div class="placeholder social-icon" aria-label="LinkedIn icon placeholder"><span>LI</span></div>
+                        <div class="placeholder social-icon" aria-label="Instagram icon placeholder"><span>IG</span></div>
+                        <div class="placeholder social-icon" aria-label="Facebook icon placeholder"><span>FB</span></div>
+                        <div class="placeholder social-icon" aria-label="YouTube icon placeholder"><span>YT</span></div>
+                    </div>
+                </div>
+                <div class="placeholder qr-code" aria-label="QR code placeholder">
+                    <span>QR Code</span>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2026 RP Prospects Pty Ltd. All Rights Reserved. | Privacy Policy</p>
+            <footer class="page-footer">
+                <span>RP Prospects</span>
+                <span>Page 10</span>
+            </footer>
+        </section>
+
+    </main>
+</body>
+</html>

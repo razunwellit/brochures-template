@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RP Prospects — Brochure Variation A (Modern Editorial)</title>
+<style>
+:root{
+  --black:#0a0a0a;
+  --white:#ffffff;
+  --gray:#7a7a7a;
+  --gray-dark:#3a3a3a;
+  --red:#D11F26;
+  --red-dark:#a8171d;
+  --bg-soft:#f7f5f2;
+  --bg-warm:#efe9e0;
+  --placeholder-bg:#e8e8e8;
+  --placeholder-border:#c8c8c8;
+  --page-w:210mm;
+  --page-h:297mm;
+  --pad-x:18mm;
+  --pad-y:18mm;
+  --header-h:8mm;
+  --footer-h:14mm;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#2a2a2a;font-family:"Helvetica Neue",Arial,sans-serif;color:var(--black);font-size:10pt;line-height:1.5}
+body{padding:10mm 0}
+.page{
+  width:var(--page-w);
+  min-height:var(--page-h);
+  margin:0 auto 8mm;
+  background:var(--white);
+  position:relative;
+  padding:var(--pad-y) var(--pad-x);
+  display:flex;
+  flex-direction:column;
+  page-break-after:always;
+  break-after:page;
+  overflow:hidden;
+}
+.page:last-child{page-break-after:auto}
+.eyebrow{
+  font-size:8pt;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--red);
+  margin-bottom:3mm;
+}
+.hairline{
+  height:1px;
+  background:var(--black);
+  margin:4mm 0;
+}
+.hairline.thick{height:3px;background:var(--red);width:30mm}
+.hairline.center{margin-left:auto;margin-right:auto}
+.page-header{
+  position:absolute;
+  top:0;left:0;right:0;
+  height:var(--header-h);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 var(--pad-x);
+  z-index:3;
+  font-size:7.5pt;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gray);
+}
+.page-header .brand{font-weight:800;color:var(--black)}
+.page-footer{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  padding:5mm var(--pad-x);
+  font-size:7.5pt;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--gray);
+  z-index:3;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.page-footer .pg{color:var(--red);font-weight:800}
+.page-footer .footer-site{display:block;border-top:1px solid #d0d0d0;margin-top:3mm;padding-top:3mm;font-size:7pt;letter-spacing:1.5px;text-align:center;color:var(--gray);text-transform:uppercase}
+.page-body{
+  flex:1;
+  padding-top:calc(var(--header-h) + 6mm);
+  padding-bottom:calc(var(--footer-h) + 4mm);
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+.img-frame{
+  position:relative;
+  overflow:hidden;
+  background:var(--placeholder-bg);
+}
+.img-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.placeholder{
+  background:var(--placeholder-bg);
+  border:1px solid var(--placeholder-border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--gray-dark);
+  font-size:10pt;
+  letter-spacing:.4px;
+}
+.section-title{
+  display:flex;
+  flex-direction:column;
+  gap:2mm;
+  margin-bottom:6mm;
+}
+.section-title h2{
+  font-size:24pt;
+  font-weight:200;
+  color:var(--black);
+  letter-spacing:-.5px;
+  line-height:1.05;
+  text-transform:uppercase;
+}
+.section-title h2 strong{font-weight:800;color:var(--red)}
+.section-title .sub{font-size:9pt;letter-spacing:2px;text-transform:uppercase;color:var(--gray);font-weight:600}
+.address-block{
+  font-size:11pt;
+  color:var(--gray-dark);
+  text-transform:uppercase;
+  line-height:1.5;
+  letter-spacing:.5px;
+}
+.address-block.large{font-size:14pt}
+.quote-mark{
+  font-size:60pt;
+  line-height:.5;
+  color:var(--red);
+  font-family:Georgia,serif;
+  font-weight:700;
+}
+.disclaimer{
+  font-size:7.5pt;
+  color:var(--gray);
+  text-align:center;
+  line-height:1.5;
+  padding:0 6mm;
+  font-style:italic;
+}
+.cover{
+  background:var(--black);
+  color:#fff;
+}
+.cover .eyebrow{color:var(--red)}
+.cover .address-block{color:#ccc}
+.cover .price{color:#fff}
+.split{display:grid;gap:8mm}
+.split-2{grid-template-columns:1fr 1fr}
+.split-3{grid-template-columns:repeat(3,1fr)}
+.split-4{grid-template-columns:repeat(4,1fr)}
+.split-5{grid-template-columns:repeat(5,1fr)}
+.split-1-2{grid-template-columns:1fr 2fr}
+.split-2-1{grid-template-columns:2fr 1fr}
+.toc-row{
+  display:grid;
+  grid-template-columns:20mm 1fr 25mm;
+  align-items:baseline;
+  gap:4mm;
+  padding:3.5mm 0;
+  border-bottom:1px solid #e0e0e0;
+}
+.toc-row .num{font-size:14pt;font-weight:200;color:var(--red);font-family:Georgia,serif}
+.toc-row .name{font-size:11pt;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.toc-row .pg{font-size:10pt;color:var(--gray);text-align:right;letter-spacing:1px}
+.icon-tile{
+  background:var(--white);
+  border:1px solid #e0e0e0;
+  border-top:3px solid var(--red);
+  padding:4mm 3mm;
+  text-align:center;
+}
+.icon-tile .ico{width:10mm;height:10mm;margin:0 auto 2mm;display:flex;align-items:center;justify-content:center}
+.icon-tile .ico svg{width:100%;height:100%;fill:var(--red)}
+.icon-tile .ttl{font-size:9.5pt;font-weight:800;text-transform:uppercase;letter-spacing:.3px}
+.icon-tile .meta{font-size:8pt;color:var(--gray);margin-top:1mm;text-transform:uppercase}
+.spec-row{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border-top:1px solid var(--black);
+  border-bottom:1px solid var(--black);
+}
+.spec-row .cell{
+  padding:4mm 2mm;
+  text-align:center;
+  border-right:1px solid #e0e0e0;
+}
+.spec-row .cell:last-child{border-right:none}
+.spec-row .v{font-size:18pt;font-weight:200;color:var(--black);line-height:1}
+.spec-row .v sup{font-size:9pt;font-weight:600;margin-left:1px}
+.spec-row .k{font-size:7.5pt;color:var(--gray-dark);text-transform:uppercase;letter-spacing:.5px;margin-top:2mm}
+.amenity{
+  display:grid;
+  grid-template-columns:12mm 1fr auto;
+  column-gap:3mm;
+  row-gap:1mm;
+  align-items:center;
+  padding:3mm 0;
+  border-bottom:1px solid #ececec;
+}
+.amenity .ic{
+  grid-row:1/span 2;
+  width:12mm;height:12mm;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+}
+.amenity .ic svg{width:6mm;height:6mm;fill:#fff}
+.amenity .nm{font-size:9.5pt;font-weight:800;text-transform:uppercase;letter-spacing:.3px}
+.amenity .dt{font-size:8pt;font-weight:700;color:#fff;background:var(--black);padding:1.5mm 3mm;letter-spacing:.5px;white-space:nowrap}
+.amenity .desc{grid-column:2/span 2;font-size:8pt;color:var(--gray);font-style:italic}
+.amenity-card{
+  background:var(--white);
+  border:1px solid #e0e0e0;
+  border-top:3px solid var(--red);
+  padding:5mm 4mm;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2mm;
+}
+.amenity-card .ic{
+  width:11mm;height:11mm;
+  background:var(--red);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1mm;
+}
+.amenity-card .ic svg{width:6mm;height:6mm;fill:#fff}
+.amenity-card .nm{
+  font-family:"Helvetica Neue",Arial,sans-serif;
+  font-size:9pt;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  color:var(--black);
+}
+.amenity-card .dt{
+  font-size:14pt;
+  font-weight:200;
+  color:var(--red);
+  line-height:1;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+}
+.amenity-card .lbl{
+  font-size:7pt;
+  color:var(--gray);
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.map-hero{
+  width:100%;
+  height:105mm;
+  border:1px solid var(--placeholder-border);
+  overflow:hidden;
+  background:var(--placeholder-bg);
+  position:relative;
+}
+.contact-row{
+  display:grid;
+  grid-template-columns:10mm 1fr;
+  gap:3mm;
+  align-items:center;
+  padding:2.5mm 0;
+  border-bottom:1px solid #ececec;
+}
+.contact-row .ic{
+  width:10mm;height:10mm;
+  border-radius:50%;
+  background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+}
+.contact-row .ic svg{width:5mm;height:5mm;fill:#fff}
+.contact-row .meta strong{display:block;font-size:7.5pt;text-transform:uppercase;letter-spacing:.5px;color:var(--black);font-weight:800}
+.contact-row .meta span{font-size:9pt;color:var(--gray-dark)}
+.card{
+  background:#fafafa;
+  border:1px solid #e0e0e0;
+  padding:4mm;
+}
+.card h3{
+  font-size:9pt;
+  color:var(--red);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  margin-bottom:2mm;
+  padding-bottom:1.5mm;
+  border-bottom:1px solid var(--red);
+  display:flex;
+  align-items:center;
+  gap:2mm;
+}
+.card h3 svg{width:4mm;height:4mm;fill:var(--red)}
+.card p{font-size:8.5pt;color:var(--gray-dark);line-height:1.5}
+.price-tag{
+  background:var(--red);
+  color:#fff;
+  padding:4mm 6mm;
+  display:inline-block;
+  font-size:24pt;
+  font-weight:200;
+  letter-spacing:-.5px;
+}
+.price-tag sup{font-size:14pt;vertical-align:super;font-weight:600}
+.mvv-card{
+  padding:5mm 4mm;
+  background:#fafafa;
+  border-left:3px solid var(--red);
+}
+.mvv-card h4{
+  font-size:9pt;
+  color:var(--red);
+  text-transform:uppercase;
+  font-weight:800;
+  letter-spacing:.5px;
+  margin-bottom:2mm;
+}
+.mvv-card p{font-size:8.5pt;color:var(--gray-dark);line-height:1.55}
+.big-number{
+  font-size:36pt;
+  font-weight:200;
+  color:var(--red);
+  line-height:1;
+}
+.big-number sup{font-size:14pt;vertical-align:super;font-weight:600}
+@media print{
+  html,body{background:#fff}
+  body{padding:0}
+  .page{margin:0;box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============== PAGE 1: COVER ============== -->
+<section class="page cover">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>House &amp; Land Package</span>
+  </div>
+
+  <div class="page-body">
+    <div style="display:flex;align-items:center;gap:6mm;margin-bottom:8mm">
+      <img src="logo.png" alt="Logo" style="width:36mm;background:#fff;padding:2mm">
+      <div class="hairline" style="flex:1;background:#fff;opacity:.3"></div>
+    </div>
+
+    <div class="img-frame" style="flex:1;min-height:90mm;margin-bottom:6mm">
+      <img src="feature_image.webp" alt="Facade">
+    </div>
+
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:6mm;margin-bottom:6mm">
+      <div>
+        <div class="eyebrow">For Sale</div>
+        <div class="address-block large" style="color:#fff">
+          LOT 42 EVERGREEN DRIVE<br>
+          EVERGREEN ESTATE<br>
+          HENDRA, QLD 4011
+        </div>
+        <div style="margin-top:6mm;display:flex;align-items:baseline;gap:4mm">
+          <div class="price-tag">$1,285,000</div>
+          <div style="font-size:8pt;color:#999;letter-spacing:1.5px;text-transform:uppercase">Total Package Price</div>
+        </div>
+        <div style="display:flex;gap:8mm;margin-top:5mm;font-size:8.5pt;color:#ccc;letter-spacing:1px;text-transform:uppercase">
+          <span>187 sqm House</span>
+          <span>·</span>
+          <span>450 sqm Land</span>
+          <span>·</span>
+          <span>Reg: Dec 2026</span>
+        </div>
+      </div>
+      <div class="img-frame" style="min-height:60mm">
+        <img src="aminetie_1.jpg" alt="Interior">
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">01 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a>  </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 2: TABLE OF CONTENTS ============== -->
+<section class="page">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>Contents</span>
+  </div>
+
+  <div class="page-body">
+    <div class="section-title">
+      <span class="eyebrow">Navigation</span>
+      <h2>Table of <strong>Contents</strong></h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:8mm;margin-bottom:6mm;padding:5mm 6mm;background:var(--bg-soft);border-top:3px solid var(--red)">
+      <div>
+        <div style="font-size:11pt;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2mm">Property</div>
+        <div style="font-size:14pt;font-weight:800;text-transform:uppercase;letter-spacing:.3px;line-height:1.2">LOT NO. TBA STREET, ESTATE NAME</div>
+        <div class="address-block" style="margin-top:1.5mm">SUBURB STATE POSTCODE</div>
+      </div>
+      <div class="img-frame">
+        <img src="aminetie_2.webp" alt="Featured">
+      </div>
+    </div>
+
+    <div style="flex:1">
+      <div class="toc-row"><span class="num">01</span><span class="name">Estate Overview</span><span class="pg">03</span></div>
+      <div class="toc-row"><span class="num">02</span><span class="name">Property Flyer</span><span class="pg">04</span></div>
+      <div class="toc-row"><span class="num">03</span><span class="name">Floor Plan</span><span class="pg">05</span></div>
+      <div class="toc-row"><span class="num">04</span><span class="name">Disclosure Plan</span><span class="pg">06</span></div>
+      <div class="toc-row"><span class="num">05</span><span class="name">Inclusions</span><span class="pg">07</span></div>
+      <div class="toc-row"><span class="num">06</span><span class="name">Builder Information</span><span class="pg">08</span></div>
+      <div class="toc-row"><span class="num">08</span><span class="name">Suburb Information</span><span class="pg">9</span></div>
+      <div class="toc-row"><span class="num">09</span><span class="name">Location &amp; Amenities</span><span class="pg">10</span></div>
+      <div class="toc-row"><span class="num">10</span><span class="name">About the Company</span><span class="pg">11</span></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">02 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a>  </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 3: ESTATE OVERVIEW ============== -->
+<section class="page">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>Estate Overview</span>
+  </div>
+
+  <div class="page-body">
+    <div class="section-title">
+      <span class="eyebrow">01 / The Community</span>
+      <h2>Estate <strong>Overview</strong></h2>
+    </div>
+
+    <div class="img-frame" style="height:55mm;margin-bottom:5mm">
+      <img src="master_plane.jpg" alt="Master Plan">
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:6mm;align-items:center;padding:4mm 5mm;background:var(--bg-soft);margin-bottom:5mm">
+      <div class="img-frame" style="height:28mm;background:#fff;padding:2mm">
+        <img src="builder.webp" alt="Estate Logo" style="object-fit:contain">
+      </div>
+      <div>
+        <div style="font-size:13pt;font-weight:800;text-transform:uppercase;letter-spacing:.3px;line-height:1.2">EVERGREEN ESTATE</div>
+        <div class="address-block" style="margin-top:1mm">HENDRA, QLD 4011</div>
+      </div>
+    </div>
+
+    <p style="font-size:9.5pt;color:var(--gray-dark);line-height:1.7;margin-bottom:6mm;text-align:justify">
+      Welcome to Evergreen Estate, a thoughtfully masterplanned community in the heart of Hendra. Tree-lined boulevards, contemporary architecture, and easy access to Brisbane's CBD, the airport, and some of Brisbane's most sought-after schools make this an exceptional place to call home.
+    </p>
+
+    <div class="hairline thick"></div>
+
+    <div class="eyebrow" style="margin-top:5mm">Nearby Highlights</div>
+
+    <div class="split split-4" style="margin-top:3mm">
+      <div class="icon-tile">
+        <div class="ico"><svg viewBox="0 0 32 32"><path d="M6 16l10-8 10 8v12H6V16z"/><path d="M14 28v-8h4v8"/></svg></div>
+        <div class="ttl">Masterplanned</div>
+        <div class="meta">Community</div>
+      </div>
+      <div class="icon-tile">
+        <div class="ico"><svg viewBox="0 0 32 32"><path d="M6 28V14l10-6 10 6v14H6z"/><path d="M10 28V18h12v10"/></svg></div>
+        <div class="ttl">15 min</div>
+        <div class="meta">Geelong Private</div>
+      </div>
+      <div class="icon-tile">
+        <div class="ico"><svg viewBox="0 0 32 32"><path d="M4 12h24l-2 16H6L4 12z"/><path d="M8 12V8a8 8 0 0 1 16 0v4"/></svg></div>
+        <div class="ttl">8 min</div>
+        <div class="meta">Warralily Village</div>
+      </div>
+      <div class="icon-tile">
+        <div class="ico"><svg viewBox="0 0 32 32"><path d="M16 4c-4 0-8 4-8 10 0 6 4 12 8 14 4-2 8-8 8-14 0-6-4-10-8-10z"/></svg></div>
+        <div class="ttl">2 min</div>
+        <div class="meta">Reserve &amp; Parks</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">03 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a>  </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 4: PROPERTY FLYER ============== -->
+<section class="page">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>Property Flyer</span>
+  </div>
+
+  <div class="page-body">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:6mm;margin-bottom:5mm">
+      <div class="img-frame" style="height:60mm">
+        <img src="feature_image.webp" alt="Featured">
+      </div>
+      <div class="img-frame" style="height:60mm">
+        <img src="areal_1.jpg" alt="Aerial">
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:8mm">
+      <div>
+        <div class="eyebrow">02 / The Property</div>
+        <div class="address-block large" style="margin-bottom:4mm">
+          LOT 42 EVERGREEN DRIVE<br>EVERGREEN ESTATE<br>HENDRA, QLD 4011
+        </div>
+        <div style="display:flex;align-items:baseline;gap:4mm;margin-bottom:5mm">
+          <div class="big-number">$1,285,000</div>
+        </div>
+        <div style="font-size:8pt;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4mm">Total Package Price</div>
+
+        <div class="spec-row">
+          <div class="cell"><div class="v">4</div><div class="k">Bed</div></div>
+          <div class="cell"><div class="v">2</div><div class="k">Bath</div></div>
+          <div class="cell"><div class="v">2</div><div class="k">Car</div></div>
+          <div class="cell"><div class="v">450<sup>sqm</sup></div><div class="k">Land</div></div>
+          <div class="cell"><div class="v">187<sup>sqm</sup></div><div class="k">Build</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:3mm">Aerial Views</div>
+        <div class="img-frame" style="height:42mm;margin-bottom:3mm">
+          <img src="areal_two.jpg" alt="Aerial">
+        </div>
+        <div class="img-frame" style="height:42mm">
+          <img src="aminetie_1.jpg" alt="Aerial">
+        </div>
+      </div>
+    </div>
+
+    <p class="disclaimer" style="margin-top:auto;padding-top:6mm">
+      Plans and illustrations are for marketing purposes &mdash; dimensions and colours are provided as a guide only.
+    </p>
+  </div>
+
+  <div class="page-footer">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">04 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a>  </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 5: FLOOR PLAN ============== -->
+<section class="page">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>Floor Plan</span>
+  </div>
+
+  <div class="page-body">
+    <div class="eyebrow">03 / Layout</div>
+    <h2 style="font-size:24pt;font-weight:200;text-transform:uppercase;letter-spacing:-.5px;line-height:1.05;margin-bottom:4mm">Floor <strong style="font-weight:800;color:var(--red)">Plan</strong></h2>
+
+    <div class="address-block" style="margin-bottom:5mm">LOT 42 EVERGREEN DRIVE, EVERGREEN ESTATE<br>HENDRA, QLD 4011</div>
+
+    <div class="spec-row" style="margin-bottom:5mm">
+      <div class="cell"><div class="v">4</div><div class="k">Bed</div></div>
+      <div class="cell"><div class="v">2</div><div class="k">Bath</div></div>
+      <div class="cell"><div class="v">2</div><div class="k">Car</div></div>
+      <div class="cell"><div class="v">450<sup>sqm</sup></div><div class="k">Land</div></div>
+      <div class="cell"><div class="v">187<sup>sqm</sup></div><div class="k">Build</div></div>
+    </div>
+
+    <div class="img-frame" style="flex:1;min-height:115mm">
+      <img src="floorplan.jpg" alt="Floor Plan">
+    </div>
+
+    <p class="disclaimer" style="margin-top:5mm">
+      Plans and illustrations are for marketing purposes &mdash; dimensions and colours are provided as a guide only.
+    </p>
+  </div>
+
+  <div class="page-footer">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">05 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a>  </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 6: DISCLOSURE PLAN ============== -->
+<section class="page">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>Disclosure</span>
+  </div>
+
+  <div class="page-body">
+    <div class="eyebrow">04 / Site Plan</div>
+    <h2 style="font-size:24pt;font-weight:200;text-transform:uppercase;letter-spacing:-.5px;line-height:1.05;margin-bottom:4mm">Disclosure <strong style="font-weight:800;color:var(--red)">Plan</strong></h2>
+
+    <div class="hairline thick"></div>
+
+    <div style="margin:5mm 0">
+      <div class="address-block" style="font-size:12pt">LOT 42 EVERGREEN DRIVE, EVERGREEN ESTATE<br>HENDRA, QLD 4011</div>
+      <p style="font-size:9pt;color:var(--gray-dark);text-align:justify;line-height:1.7;margin-top:4mm;font-style:italic">
+        The disclosure plan below shows the indicative lot layout, building envelope, and easements for Lot 42. All dimensions and boundaries are indicative and subject to final survey and council approval. Prospective purchasers should review this plan in conjunction with the contract of sale and the registered plan of subdivision.
+      </p>
+    </div>
+
+    <div class="img-frame" style="flex:1;min-height:120mm;border:2px solid var(--black)">
+      <img src="areal_two.jpg" alt="Disclosure Plan" style="object-fit:contain">
+    </div>
+
+    <p style="font-size:7.5pt;color:var(--gray);text-align:center;margin-top:3mm;font-style:italic">
+      Note: This disclosure plan is indicative only. All dimensions are subject to change.
+    </p>
+  </div>
+
+  <div class="page-footer">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">06 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a>  </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 7: INCLUSIONS ============== -->
+<section class="page">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>Inclusions</span>
+  </div>
+
+  <div class="page-body">
+    <div class="section-title">
+      <span class="eyebrow">05 / Standard Inclusions</span>
+      <h2>Every <strong>Detail</strong></h2>
+    </div>
+
+    <div class="split split-2" style="gap:6mm">
+      <div class="card" style="display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:start">
+        <div class="img-frame" style="height:28mm"><img src="aminetie_1.jpg" alt="Premium Kitchen"></div>
+        <div>
+          <h3>Premium Kitchen</h3>
+          <p>20mm stone benchtops, soft-close cabinetry, 900mm stainless steel appliances, designer tile splashback, walk-in pantry.</p>
+        </div>
+      </div>
+      <div class="card" style="display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:start">
+        <div class="img-frame" style="height:28mm"><img src="aminetie_2.webp" alt="Designer Bathroom"></div>
+        <div>
+          <h3>Designer Bathroom</h3>
+          <p>Semi-frameless shower screens, full-height wall tiles, chrome tapware, mirrored shaving cabinet, freestanding bath to ensuite.</p>
+        </div>
+      </div>
+      <div class="card" style="display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:start">
+        <div class="img-frame" style="height:28mm"><img src="feature_image.webp" alt="Energy Efficient Home"></div>
+        <div>
+          <h3>Energy Efficient</h3>
+          <p>6.6kW solar system, double-glazed windows, zoned ducted heating &amp; cooling, LED downlights, R4.0 ceiling insulation.</p>
+        </div>
+      </div>
+      <div class="card" style="display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:start">
+        <div class="img-frame" style="height:28mm"><img src="areal_1.jpg" alt="Flooring &amp; Finishes"></div>
+        <div>
+          <h3>Flooring &amp; Finishes</h3>
+          <p>Hybrid timber flooring to living areas, premium carpet to bedrooms, large-format porcelain tiles to wet areas, three colour schemes.</p>
+        </div>
+      </div>
+      <div class="card" style="display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:start">
+        <div class="img-frame" style="height:28mm"><img src="areal_two.jpg" alt="Security Features"></div>
+        <div>
+          <h3>Security Features</h3>
+          <p>Keyless entry, video intercom, alarm system, security screens to all openings, hard-wired smoke detectors.</p>
+        </div>
+      </div>
+      <div class="card" style="display:grid;grid-template-columns:30mm 1fr;gap:4mm;align-items:start">
+        <div class="img-frame" style="height:28mm"><img src="master_plane.jpg" alt="Landscaping Package"></div>
+        <div>
+          <h3>Landscaping Package</h3>
+          <p>Fully fenced front &amp; rear, drought-tolerant plants, instant turf, concrete driveway, letterbox, clothesline, TV antenna.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">07 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a>  </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 8: BUILDER INFORMATION ============== -->
+<section class="page">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>Builder</span>
+  </div>
+
+  <div class="page-body">
+    <div class="section-title">
+      <span class="eyebrow">06 / The Builder</span>
+      <h2>Builder <strong>Profile</strong></h2>
+    </div>
+
+    <p style="font-size:9.5pt;color:var(--gray-dark);line-height:1.7;text-align:justify;margin-bottom:5mm">
+      With over 15 years of experience in residential construction, our builder has earned a reputation for delivering architecturally designed homes that combine quality craftsmanship with contemporary style. Specialising in SMSF-eligible house and land packages, the team works closely with every client to ensure a seamless journey from initial design through to handover.
+    </p>
+
+    <div class="hairline thick"></div>
+
+    <div class="split split-3" style="margin-top:5mm">
+      <div style="text-align:center;padding:4mm 2mm;border-top:3px solid var(--red)">
+        <div class="big-number">15<sup>+</sup></div>
+        <div style="font-size:8pt;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-top:2mm">Years Experience</div>
+      </div>
+      <div style="text-align:center;padding:4mm 2mm;border-top:3px solid var(--red)">
+        <div class="big-number">500<sup>+</sup></div>
+        <div style="font-size:8pt;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-top:2mm">Projects Delivered</div>
+      </div>
+      <div style="text-align:center;padding:4mm 2mm;border-top:3px solid var(--red)">
+        <div class="big-number">2K<sup>+</sup></div>
+        <div style="font-size:8pt;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;margin-top:2mm">Happy Clients</div>
+      </div>
+    </div>
+
+    <div class="split split-3" style="margin-top:5mm">
+      <div class="img-frame" style="height:40mm"><img src="feature_image.webp" alt="Builder Project Showcase"></div>
+      <div class="img-frame" style="height:40mm"><img src="aminetie_2.webp" alt="Builder Project Showcase"></div>
+      <div class="img-frame" style="height:40mm"><img src="areal_1.jpg" alt="Builder Project Showcase"></div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">08 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a>  </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 9: SUBURB INFORMATION ============== -->
+<section class="page">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>Suburb</span>
+  </div>
+
+  <div class="page-body">
+    <div class="section-title">
+      <span class="eyebrow">08 / Location</span>
+      <h2>About the <strong>Suburb</strong></h2>
+    </div>
+
+    <div class="split split-2" style="gap:5mm">
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg>About Hendra</h3>
+        <p>Hendra is a sought-after inner-northern Brisbane suburb known for its leafy streets, proximity to the airport, and family-friendly atmosphere.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.4-1.4 3.6 3.6L17.4 6.6 18.8 8l-8.8 9z"/></svg>Lifestyle</h3>
+        <p>Quiet residential streets, weekend markets, and a strong community spirit. Cafés and the Racecourse Road precinct are minutes away.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>Schools</h3>
+        <p>Within catchment for Hendra &amp; Eagle Junction state schools, with Brisbane Boys' College and Somerville House nearby.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10z"/></svg>Public Transport</h3>
+        <p>Hendra railway station within walking distance. Brisbane CBD is just 10 minutes by train, with direct Airport Link access.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H5.21l-.94-2H1z"/></svg>Shopping</h3>
+        <p>Racecourse Road, Toombul Shopping Centre, Clayfield Markets, Portside Wharf and DFO Brisbane Airport — all a short drive.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24"><path d="M16 4c-4 0-8 4-8 10 0 6 4 12 8 14 4-2 8-8 8-14 0-6-4-10-8-10z"/></svg>Parks &amp; Recreation</h3>
+        <p>Kalinga Park, Doomben and Eagle Farm racecourses, plus extensive walking and cycling paths along the Kedron Brook.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>Population</h3>
+        <p>Approximately 4,500 residents, predominantly families and professionals, with a median age of 38.</p>
+      </div>
+      <div class="card">
+        <h3><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>Demographics</h3>
+        <p>Mix of young families, established professionals and downsizers. High home-ownership rate with above-average incomes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">9 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a>  </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 10: LOCATION & AMENITIES ============== -->
+<section class="page">
+  <div class="page-header">
+    <span class="brand">RP Prospects</span>
+    <span>Location</span>
+  </div>
+
+    <div class="page-body">
+    <div class="section-title">
+      <span class="eyebrow">09 / Where It Is</span>
+      <h2>Location &amp; <strong>Amenities</strong></h2>
+    </div>
+
+    <div class="map-hero">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.654731899244!2d153.068504!3d-27.422124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b9159a5e8c8c8c9%3A0x5045675218ce6e0!2sHendra%20QLD%204011%2C%20Australia!5e0!3m2!1sen!2s!4v1784100000000" width="100%" height="100%" style="border:0;display:block" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <div style="position:absolute;top:4mm;left:4mm;background:rgba(0,0,0,.85);color:#fff;padding:3mm 5mm;font-size:8pt;letter-spacing:1.5px;text-transform:uppercase;font-weight:700">
+        Hendra, QLD 4011
+      </div>
+    </div>
+
+    <div class="eyebrow" style="text-align:center;margin:5mm 0 3mm">What&apos;s Nearby</div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4mm">
+      <div class="amenity-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+        <div class="nm">Schools</div>
+        <div class="dt">1.2<sup>km</sup></div>
+        <div class="lbl">Hendra &amp; Eagle Junction</div>
+      </div>
+      <div class="amenity-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M19 8h-2V6a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3v2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2zm-6 7h-2v-2h2v2zm0-4h-2V9h2v2zm-1-6h2v2h-2V5z"/></svg></div>
+        <div class="nm">Hospitals</div>
+        <div class="dt">3.5<sup>km</sup></div>
+        <div class="lbl">Royal Brisbane &amp; Women&apos;s</div>
+      </div>
+      <div class="amenity-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L20.88 5H5.21l-.94-2H1z"/></svg></div>
+        <div class="nm">Shopping</div>
+        <div class="dt">0.8<sup>km</sup></div>
+        <div class="lbl">Racecourse Road</div>
+      </div>
+      <div class="amenity-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M16 4c-4 0-8 4-8 10 0 6 4 12 8 14 4-2 8-8 8-14 0-6-4-10-8-10z"/></svg></div>
+        <div class="nm">Parks</div>
+        <div class="dt">0.5<sup>km</sup></div>
+        <div class="lbl">Kalinga Park</div>
+      </div>
+      <div class="amenity-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10z"/></svg></div>
+        <div class="nm">Transport</div>
+        <div class="dt">0.6<sup>km</sup></div>
+        <div class="lbl">Hendra Station</div>
+      </div>
+      <div class="amenity-card">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#fff" stroke-width="2"/><path d="M3 12h18M12 3c2.5 3 4 6 4 9s-1.5 6-4 9M12 3c-2.5 3-4 6-4 9s1.5 6 4 9" fill="none" stroke="#fff" stroke-width="2"/></svg></div>
+        <div class="nm">Recreation</div>
+        <div class="dt">1.0<sup>km</sup></div>
+        <div class="lbl">Sporting clubs</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============== PAGE 11: ABOUT THE COMPANY ============== -->
+<section class="page cover">
+  <div class="page-header" style="color:#999">
+    <span class="brand" style="color:#fff">RP Prospects</span>
+    <span>About Us</span>
+  </div>
+
+  <div class="page-body" style="align-items:center;text-align:center">
+    <div style="margin:8mm 0 4mm">
+      <img src="logo.png" alt="Logo" style="width:80mm;background:#fff;padding:3mm;display:block;margin:0 auto">
+    </div>
+    <div style="color:#ccc;font-size:16pt;font-weight:200;letter-spacing:-.3px;margin-bottom:8mm">End to end SMSF Portal.</div>
+
+    <div class="hairline thick" style="width:30mm;margin:0 auto 8mm"></div>
+
+    <div style="font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:5mm">Follow Us</div>
+    <div style="display:flex;gap:4mm;justify-content:center;margin-bottom:8mm">
+      <a href="https://www.facebook.com/rpprospects" target="_blank" rel="noopener" style="width:10mm;height:10mm;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:5mm;height:5mm;fill:#000"><path d="M13 22v-8h3l1-4h-4V7c0-1.1.9-2 2-2h2V1h-3a5 5 0 0 0-5 5v4H6v4h3v8h4z"/></svg></a>
+      <a href="https://www.linkedin.com/company/rpprospectsptyltd/" target="_blank" rel="noopener" style="width:10mm;height:10mm;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:5mm;height:5mm;fill:#000"><path d="M4 4h4v4H4zM4 9h4v11H4zM10 9h4v2c.7-1.2 2-2 4-2 3 0 4 2 4 5v7h-4v-6c0-1.5-.5-2.5-2-2.5s-2 1-2 2.5V20h-4V9z"/></svg></a>
+      <a href="https://www.instagram.com/rpprospects/" target="_blank" rel="noopener" style="width:10mm;height:10mm;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:5mm;height:5mm;fill:none;stroke:#000;stroke-width:2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="#000"/></svg></a>
+      <a href="https://www.youtube.com/channel/UCHhYn97Qk2KVcaRVQV0TkqQ" target="_blank" rel="noopener" style="width:10mm;height:10mm;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" style="width:5mm;height:5mm;fill:#000"><path d="M22 8.5a3 3 0 0 0-2-2C18 6 12 6 12 6s-6 0-8 .5a3 3 0 0 0-2 2C2 10.5 2 12 2 12s0 1.5.5 3.5a3 3 0 0 0 2 2C6.5 18 12 18 12 18s6 0 8-.5a3 3 0 0 0 2-2c.5-2 .5-3.5.5-3.5s0-1.5-.5-3.5zM10 15V9l5 3-5 3z"/></svg></a>
+    </div>
+
+    <div class="hairline" style="background:#fff;opacity:.3;width:60%;margin:0 auto 8mm"></div>
+
+    <div style="font-size:8pt;letter-spacing:3px;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:5mm">Get in Touch</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm 8mm;width:90%;text-align:left;margin:0 auto">
+      <div class="contact-row" style="border-color:#444">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 12c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zm0 2c-2.7 0-8 1.3-8 4v2h16v-2c0-2.7-5.3-4-8-4z"/></svg></div>
+        <div class="meta"><strong style="color:#fff">Contact Person</strong><span style="color:#ccc">RP Prospects Team</span></div>
+      </div>
+      <div class="contact-row" style="border-color:#444">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.2 2.2z"/></svg></div>
+        <div class="meta"><strong style="color:#fff">Phone</strong><span style="color:#ccc"><a href="tel:0272525788" style="color:#ccc;text-decoration:none">(02) 7252 5788</a></span></div>
+      </div>
+      <div class="contact-row" style="border-color:#444">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+        <div class="meta"><strong style="color:#fff">Email</strong><span style="color:#ccc"><a href="mailto:smsf@rpprospects.com" style="color:#ccc;text-decoration:none">smsf@rpprospects.com</a></span></div>
+      </div>
+      <div class="contact-row" style="border-color:#444">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1 17.9c-1.7-.2-3.3-.9-4.6-2L8 16l-2 1 .8-2.8C5.2 12.9 4.4 11 4.4 9c0-1.7.5-3.3 1.4-4.6L4 3l1.4 1.4C7.5 3.1 9.7 2.4 12 2.4c5 0 9 4 9 9s-4 9-9 9c-.3 0-.7 0-1-.1z"/></svg></div>
+        <div class="meta"><strong style="color:#fff">Website</strong><span style="color:#ccc"><a href="https://rpprospects.com" target="_blank" style="color:#ccc;text-decoration:none">rpprospects.com</a></span></div>
+      </div>
+      <div class="contact-row" style="grid-column:1/-1;border-color:#444">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg></div>
+        <div class="meta"><strong style="color:#fff">QLD Office</strong><span style="color:#ccc">10A Flemington St., Hendra</span><strong style="color:#fff;margin-top:1.5mm">NSW Office</strong><span style="color:#ccc">121 Castlereagh St, Sydney</span></div>
+      </div>
+    </div>
+
+    <p class="disclaimer" style="color:#999;margin-top:6mm;width:90%">
+      RP Prospects Pty Ltd reserves the right to alter any of the above inclusions due to availability and/or product development.
+    </p>
+  </div>
+
+  <div class="page-footer" style="color:#999">
+    <span>RP Prospects &nbsp;|&nbsp; <a href="tel:0272525788" style="color:inherit;text-decoration:none">(02) 7252 5788</a> &nbsp;|&nbsp; <a href="mailto:smsf@rpprospects.com" style="color:inherit;text-decoration:none">smsf@rpprospects.com</a></span><span class="pg">11 / 11</span>
+    <div class="footer-site"><a href="https://rpprospects.com" target="_blank" style="color:inherit;text-decoration:none">rpprospects.com</a></div>
+  </div>
+</section>
+
+</body>
+</html>
