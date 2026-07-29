@@ -728,8 +728,8 @@
         }
 
         .p8-social-section {
-            margin-top: 10px;
-            margin-bottom: 35px;
+            margin: 0;
+            text-align: left;
         }
 
         .p8-social-label {
@@ -744,7 +744,69 @@
         .p8-social-icons {
             display: flex;
             gap: 12px;
-            justify-content: center;
+            justify-content: flex-start;
+        }
+
+        .p8-contact-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            gap: 20mm;
+            margin: 10px 0 35px 0;
+            text-align: left;
+        }
+
+        .p8-contact-block {
+            margin-bottom: 16px;
+        }
+
+        .p8-contact-label {
+            font-size: 7.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #777777;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .p8-contact-value {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--brand-black);
+            line-height: 1.45;
+        }
+
+        .p8-social-handle {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--brand-black);
+            margin-top: 8px;
+        }
+
+        .p8-qr-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .p8-qr-img {
+            width: 85px;
+            height: 85px;
+            display: block;
+        }
+
+        .p8-qr-text {
+            font-size: 7.5pt;
+            color: #777777;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .p8-qr-domain {
+            color: var(--brand-red);
+            font-weight: 700;
         }
 
         .social-box {
@@ -1381,7 +1443,10 @@
             PAGE 8: BACK COVER
             ========================================== -->
     <section class="page" id="page-8">
-        <div class="header-red-strip" style="width: 100%; height: 12px;"></div>
+        <header class="header-bar">
+            <div class="header-black"></div>
+            <div class="header-red-strip"></div>
+        </header>
 
         <div class="p8-back-wrapper">
             <!-- Large Center Branding Mark -->
@@ -1398,6 +1463,25 @@
                 </svg>
             </div>
 
+            <!-- Contact + Social / QR Row -->
+            <div class="p8-contact-grid">
+                <div class="p8-contact-col">
+                    <div class="p8-contact-block">
+                        <div class="p8-contact-label">For Inquiries, Contact:</div>
+                        <div class="p8-contact-value">info@rpprospects.com</div>
+                        <div class="p8-contact-value">(02) 7252 5788</div>
+                    </div>
+                    <div class="p8-contact-block">
+                        <div class="p8-contact-label">Queensland Office:</div>
+                        <div class="p8-contact-value">10A Flemington St, Hendra QLD</div>
+                    </div>
+                    <div class="p8-contact-block">
+                        <div class="p8-contact-label">New South Wales Office:</div>
+                        <div class="p8-contact-value">121 Castlereagh St, Sydney NSW</div>
+                    </div>
+                </div>
+
+                <div class="p8-social-col">
             <!-- Social Icons -->
             <div class="p8-social-section">
                 <div class="p8-social-label">FOLLOW US IN SOCIAL MEDIA</div>
@@ -1418,6 +1502,15 @@
                     <a class="social-box" href="https://www.youtube.com/channel/UCHhYn97Qk2KVcaRVQV0TkqQ" target="_blank" rel="noopener noreferrer nofollow">
                         <svg class="icon" viewBox="0 0 576 512" width="18" height="18"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
                     </a>
+                </div>
+                <div class="p8-social-handle">rpprospects</div>
+            </div>
+
+                    <!-- QR Code -->
+                    <div class="p8-qr-block">
+                        <img src="qr-rpprospects.png" alt="QR code - rpprospects.com" class="p8-qr-img">
+                        <div class="p8-qr-text">Scan our QR code<br>to visit our website:<br><span class="p8-qr-domain">rpprospects.com</span></div>
+                    </div>
                 </div>
             </div>
 
