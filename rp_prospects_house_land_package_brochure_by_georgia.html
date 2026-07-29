@@ -156,8 +156,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-left: 24mm;
-            padding-right: 0;
+            padding-left: 15mm;
+            padding-right: 15px;
             position: relative;
         }
 
@@ -198,7 +198,7 @@
         #page-1 .header-black {
             justify-content: flex-end;
             padding-left: 0;
-            padding-right: 24mm;
+            padding-right: 15px;
         }
 
         #page-1 .header-logo-box {
@@ -206,9 +206,14 @@
             left: 15mm;
         }
 
-        /* PAGE 2: specs right — clear the right logo box */
+        #page-1 .header-title {
+            text-align: right;
+        }
+
+        /* PAGE 2: specs right — match page 1 right gap */
         #page-2 .header-black {
-            padding-right: 55mm;
+            padding-left: 15mm;
+            padding-right: 15px;
         }
 
         /* FOOTER STRUCTURE */
@@ -408,6 +413,7 @@
             align-items: center;
             gap: 20px;
             color: #ffffff;
+            margin-left: auto;
         }
 
         .p2-top-info {
@@ -816,7 +822,7 @@
                 <div class="header-logo-box">
                     <img src="header-logo.png" alt="RP Prospects Logo" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block">
                 </div>
-                <div class="header-title" data-field="p1-header">HOUSE &amp; LAND PACKAGE</div>
+                <div class="header-title" data-field="p1-header">HOUSE &amp; LAND<br>PACKAGE</div>
             </div>
             <div class="header-red-strip"></div>
         </header>
