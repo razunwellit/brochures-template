@@ -539,63 +539,47 @@
         }
 
         /* PAGE 5 SPECIFIC STYLING (AREA PROFILE) */
-        .p5-cards-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: repeat(4, auto);
-            gap: 12px;
+        .p5-profile-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             flex: 1;
         }
 
-        .area-card {
-            background-color: #FAFAFA;
-            border: 1px solid #E0E0E0;
-            border-radius: 2px;
-            padding: 10px 12px;
-        }
-
-        .area-card-header {
+        .p5-profile-row {
             display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--brand-red);
-            margin-bottom: 4px;
+            align-items: flex-start;
+            gap: 30px;
         }
 
-        .area-card-title {
-            font-size: 9.5pt;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-
-        .area-card-rule {
-            height: 1.5px;
-            background-color: var(--brand-red);
-            margin-bottom: 8px;
-        }
-
-        .area-card-bullets {
-            list-style: none;
-        }
-
-        .area-card-bullets li {
-            position: relative;
-            padding-left: 12px;
-            font-size: 7.5pt;
-            color: var(--brand-black);
-            margin-bottom: 4px;
-            line-height: 1.25;
+        .p5-profile-image {
+            width: 190px;
+            height: 145px;
+            flex-shrink: 0;
+            font-size: 9pt;
             font-weight: 500;
+            text-transform: none;
+            letter-spacing: 0;
         }
 
-        .area-card-bullets li::before {
-            content: "•";
-            color: var(--brand-red);
-            font-size: 11pt;
-            position: absolute;
-            left: 0;
-            top: -2px;
+        .p5-profile-info {
+            flex: 1;
+        }
+
+        .p5-profile-label {
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: var(--brand-mid-grey);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .p5-profile-text {
+            font-size: 8.5pt;
+            color: var(--brand-dark-grey);
+            line-height: 1.45;
+            margin-top: 5px;
+            max-width: 130mm;
         }
 
         /* PAGE 6 SPECIFIC STYLING (BUILDER INFORMATION) */
@@ -1182,127 +1166,115 @@
         </header>
 
         <div class="page-content">
-            <div class="p5-cards-grid">
-                <!-- 1. ABOUT -->
-                <div class="area-card">
-                    <div class="area-card-header">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                        <span class="area-card-title">ABOUT</span>
+            <div class="p5-profile-rows">
+                <!-- EDUCATION -->
+                <div class="p5-profile-row">
+                    <div class="image-placeholder p5-profile-image" data-field="p5-education-image">
+                        <span>Image</span>
+                        <img src="school.jpg" alt="Local School and Education Campus">
                     </div>
-                    <div class="area-card-rule"></div>
-                    <ul class="area-card-bullets" contenteditable="true" data-field="card-about">
-                        <li>Located in the high-growth Moreton Bay corridor</li>
-                        <li>Rapidly expanding masterplanned precinct</li>
-                        <li>High proportion of young families and professional couples</li>
-                        <li>Strong rental yield potential for investor SMSF portfolios</li>
-                        <li>Surrounded by natural parklands &amp; reserves</li>
-                    </ul>
+                    <div class="p5-profile-info">
+                        <div class="p5-profile-label">EDUCATION</div>
+                        <div class="p5-profile-text" contenteditable="true">Quality schooling options nearby include Morayfield State School, Morayfield State High School and several private colleges, with TAFE Queensland's Caboolture campus just a short drive away.</div>
+                    </div>
                 </div>
 
-                <!-- 2. LIFESTYLE -->
-                <div class="area-card">
-                    <div class="area-card-header">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                        <span class="area-card-title">LIFESTYLE</span>
+                <!-- SHOPPING MALL -->
+                <div class="p5-profile-row">
+                    <div class="image-placeholder p5-profile-image" data-field="p5-shopping-image">
+                        <span>Image</span>
+                        <img src="park-recreation.jpg" alt="Shopping Mall Interior">
                     </div>
-                    <div class="area-card-rule"></div>
-                    <ul class="area-card-bullets" contenteditable="true" data-field="card-lifestyle">
-                        <li>Easy 40-minute drive to Sunshine Coast beaches</li>
-                        <li>Vibrant local café and dining scene</li>
-                        <li>Walking trails, cycling paths, and sports ovals</li>
-                        <li>Community centers and regular weekend markets</li>
-                        <li>Pet-friendly parks and wetland boardwalks</li>
-                    </ul>
+                    <div class="p5-profile-info">
+                        <div class="p5-profile-label">SHOPPING MALL</div>
+                        <div class="p5-profile-text" contenteditable="true">Morayfield Shopping Centre is only 5 minutes away, anchored by major supermarkets and over 160 specialty stores, plus dining precincts and a cinema. Caboolture CBD adds further retail and services.</div>
+                    </div>
                 </div>
 
-                <!-- 3. SCHOOLS -->
-                <div class="area-card">
-                    <div class="area-card-header">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-                        <span class="area-card-title">SCHOOLS</span>
+                <!-- PARK AND RECREATION -->
+                <div class="p5-profile-row">
+                    <div class="image-placeholder p5-profile-image" data-field="p5-park-image">
+                        <span>Image</span>
+                        <img src="life-style.jpg" alt="Family Picnic in Local Park">
                     </div>
-                    <div class="area-card-rule"></div>
-                    <ul class="area-card-bullets" contenteditable="true" data-field="card-schools">
-                        <li>Morayfield State School &amp; State High School</li>
-                        <li>Caboolture State High School campus</li>
-                        <li>St Columban's College nearby</li>
-                        <li>Multiple early learning &amp; childcare centers</li>
-                    </ul>
+                    <div class="p5-profile-info">
+                        <div class="p5-profile-label">PARK AND RECREATION</div>
+                        <div class="p5-profile-text" contenteditable="true">Direct access to Montrose Parklands &amp; Playgrounds, walking and cycling trails along the Caboolture River, plus local sports grounds, dog parks and community recreation facilities.</div>
+                    </div>
                 </div>
 
-                <!-- 4. PUBLIC TRANSPORT -->
-                <div class="area-card">
-                    <div class="area-card-header">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M4 6c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v9c0 1.1-.9 2-2 2h-1.5l1.5 2v1H4v-1l1.5-2H4c-1.1 0-2-.9-2-2V6zm4 11h8v-2H8v2zm-2-4h12V6H6v7z"/></svg>
-                        <span class="area-card-title">PUBLIC TRANSPORT</span>
+                <!-- POPULATION -->
+                <div class="p5-profile-row">
+                    <div class="image-placeholder p5-profile-image" data-field="p5-population-image">
+                        <span>Image</span>
+                        <img src="population.jpg" alt="Busy Shopping Strip - Growing Population">
                     </div>
-                    <div class="area-card-rule"></div>
-                    <ul class="area-card-bullets" contenteditable="true" data-field="card-transport">
-                        <li>Morayfield train station (5 mins away)</li>
-                        <li>Direct Caboolture line rail access to Brisbane CBD</li>
-                        <li>Local bus network connecting to Caboolture hub</li>
-                        <li>Future planned railway extensions</li>
-                    </ul>
+                    <div class="p5-profile-info">
+                        <div class="p5-profile-label">POPULATION</div>
+                        <div class="p5-profile-text" contenteditable="true">One of the fastest-growing suburbs in the Moreton Bay Region, Morayfield's population exceeds 23,000, with strong projected growth driven by new masterplanned communities and infrastructure investment.</div>
+                    </div>
                 </div>
 
-                <!-- 5. SHOPPING -->
-                <div class="area-card">
-                    <div class="area-card-header">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                        <span class="area-card-title">SHOPPING</span>
+            </div>
+        </div>
+
+        <footer class="footer-bar">
+            <div class="footer-top-line"></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia | 0400 123 456 | georgia@rpprospects.com</div>
+            <div class="footer-domain">rpprospects.com</div>
+        </footer>
+    </section>
+
+    <!-- ==========================================
+            PAGE 5B: AREA PROFILE (CONTINUED)
+            ========================================== -->
+    <section class="page" id="page-5b">
+        <header class="header-bar">
+            <div class="header-black">
+                <div class="header-title">AREA PROFILE</div>
+                <div class="header-logo-box">
+                    <img src="header-logo.png" alt="RP Prospects Logo" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block">
+                </div>
+            </div>
+            <div class="header-red-strip"></div>
+        </header>
+
+        <div class="page-content">
+            <div class="p5-profile-rows">
+                <!-- DEMOGRAPHICS -->
+                <div class="p5-profile-row">
+                    <div class="image-placeholder p5-profile-image" data-field="p5-demographics-image">
+                        <span>Image</span>
+                        <img src="demographics.jpg" alt="Aerial View of Local Suburb Demographics">
                     </div>
-                    <div class="area-card-rule"></div>
-                    <ul class="area-card-bullets" contenteditable="true" data-field="card-shopping">
-                        <li>Morayfield Shopping Centre (Coles, Woolworths, BIG W)</li>
-                        <li>Caboolture Square retail precinct</li>
-                        <li>Bribie Island Road retail strip (5 mins drive)</li>
-                        <li>Westfield North Lakes nearby</li>
-                    </ul>
+                    <div class="p5-profile-info">
+                        <div class="p5-profile-label">DEMOGRAPHICS</div>
+                        <div class="p5-profile-text" contenteditable="true">The suburb attracts young families and first-home buyers, with a median age of around 32 and predominantly owner-occupied households. Median weekly household incomes sit close to the Queensland average.</div>
+                    </div>
                 </div>
 
-                <!-- 6. PARKS & RECREATION -->
-                <div class="area-card">
-                    <div class="area-card-header">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/></svg>
-                        <span class="area-card-title">PARKS &amp; RECREATION</span>
+                <!-- HEALTHCARE -->
+                <div class="p5-profile-row">
+                    <div class="image-placeholder p5-profile-image" data-field="p5-healthcare-image">
+                        <span>Image</span>
+                        <img src="public-transport.jpg" alt="Public Transport - Tram Network">
                     </div>
-                    <div class="area-card-rule"></div>
-                    <ul class="area-card-bullets" contenteditable="true" data-field="card-parks">
-                        <li>Montrose parklands and adventure playgrounds</li>
-                        <li>Caboolture River walk with BBQ facilities &amp; pavilions</li>
-                        <li>Moreton Bay cycling trail network</li>
-                        <li>Local sporting complexes &amp; tennis courts</li>
-                    </ul>
+                    <div class="p5-profile-info">
+                        <div class="p5-profile-label">PUBLIC TRANSPORT</div>
+                        <div class="p5-profile-text" contenteditable="true">Morayfield Train Station provides direct rail services to Brisbane CBD in under an hour, while local bus routes connect the estate to schools and shopping precincts. The Bruce Highway is only minutes away.</div>
+                    </div>
                 </div>
 
-                <!-- 7. POPULATION -->
-                <div class="area-card">
-                    <div class="area-card-header">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                        <span class="area-card-title">POPULATION</span>
+                <!-- LIFESTYLE -->
+                <div class="p5-profile-row">
+                    <div class="image-placeholder p5-profile-image" data-field="p5-lifestyle-image">
+                        <span>Image</span>
+                        <img src="aminetie_2.webp" alt="Estate Lifestyle Aerial - Parklane Burnside">
                     </div>
-                    <div class="area-card-rule"></div>
-                    <ul class="area-card-bullets" contenteditable="true" data-field="card-population">
-                        <li>Suburb Population: ~25,000+ and growing</li>
-                        <li>Projected Growth: 4.5% annual increase</li>
-                        <li>Median Resident Age: 32 years</li>
-                        <li>High owner-occupier ratio (72%)</li>
-                    </ul>
-                </div>
-
-                <!-- 8. DEMOGRAPHICS -->
-                <div class="area-card">
-                    <div class="area-card-header">
-                        <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
-                        <span class="area-card-title">DEMOGRAPHICS</span>
+                    <div class="p5-profile-info">
+                        <div class="p5-profile-label">LIFESTYLE</div>
+                        <div class="p5-profile-text" contenteditable="true">A relaxed semi-rural lifestyle with urban convenience — leafy streetscapes and open space combined with cafés, markets and family-friendly amenities, all within 45 minutes of Brisbane and the Sunshine Coast.</div>
                     </div>
-                    <div class="area-card-rule"></div>
-                    <ul class="area-card-bullets" contenteditable="true" data-field="card-demographics">
-                        <li>Median Weekly Household Income: $1,850</li>
-                        <li>Predominant Occupations: Professional &amp; Trades</li>
-                        <li>Family Types: 62% Couples with Children</li>
-                        <li>Low vacancy rate reflecting sustained rental demand</li>
-                    </ul>
                 </div>
             </div>
         </div>
