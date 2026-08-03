@@ -462,8 +462,24 @@
         /* PAGE 3 SPECIFIC STYLING (DISCLOSURE PLAN) */
         .p3-lot-box {
             width: 100%;
-            height: 100%;
-            flex: 1;
+            height: auto; /* box wraps the image so it shows whole - no crop, no gaps */
+            flex: none;
+            margin: auto 0; /* vertically center within the page content area */
+            display: block;
+        }
+
+        .p3-lot-box span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .p3-lot-box img {
+            position: relative; /* sits above the placeholder span */
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* PAGE 4 SPECIFIC STYLING (ESTATE INFORMATION) */
@@ -1024,7 +1040,7 @@
             <!-- Full-Page Lot / Disclosure Image -->
             <div class="image-placeholder p3-lot-box" data-field="p3-lot-image">
                 <span>LOT IMAGE</span>
-                <img src="disclouser.png" alt="Disclosure Plan - Lot 532" style="object-fit: contain; background: #ffffff;">
+                <img src="disclouser.png" alt="Disclosure Plan - Lot 532">
             </div>
         </div>
 
@@ -1348,7 +1364,7 @@
             <!-- 3 Column Spec Box -->
             <div class="p6-spec-grid">
                 <div class="p6-spec-col">
-                    <strong style="font-size: 11pt; color: var(--brand-red);">25 YEAR</strong>
+                    <strong style="font-size: 11pt; color: var(--brand-red);">35 YEAR</strong>
                     <span style="font-size: 8pt; font-weight: 700; color: var(--brand-black);">EXPERIENCE</span>
                 </div>
                 <div class="p6-spec-col">
