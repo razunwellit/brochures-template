@@ -649,14 +649,12 @@
         .p6-spec-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 0;
-            border: 1px solid var(--brand-border-grey);
+            gap: 20px; /* equal spacing between images */
             height: 45mm;
         }
 
         .p6-spec-col {
             background-color: var(--brand-light-grey);
-            border-right: 1px solid var(--brand-border-grey);
             padding: 12px;
             display: flex;
             flex-direction: column;
@@ -665,8 +663,8 @@
             text-align: center;
         }
 
-        .p6-spec-col:last-child {
-            border-right: none;
+        .p6-spec-grid .image-placeholder {
+            border: none;
         }
 
         /* PAGE 7 SPECIFIC STYLING (INCLUSIONS TEMPLATE) */
@@ -944,7 +942,7 @@
                     <div class="p1-meta-specs">
                         <div><strong>House Size:</strong> <span data-field="house-size">171.00</span> sqm</div>
                         <div><strong>Land Size:</strong> <span data-field="land-size">260.00</span> sqm</div>
-                        <div><strong>Registration Date:</strong> <span data-field="reg-date">August 2025</span></div>
+                        <div><strong>Registration Date:</strong> <span data-field="reg-date">Completed</span></div>
                     </div>
                 </div>
                 <div>
@@ -958,25 +956,23 @@
             <!-- Feature Bullets Grid -->
             <div class="p1-bullets-grid">
                 <ul class="feature-bullets" data-field="left-bullets">
-                    <li contenteditable="true">25 Year Structural Warranty</li>
-                    <li contenteditable="true">Waffle pod slab with steel reinforcements</li>
-                    <li contenteditable="true">Engineer-designed &amp; inspected concrete slab</li>
-                    <li contenteditable="true">Guard Termite Protection to slab &amp; perimeter</li>
-                    <li contenteditable="true">Underground power, water &amp; stormwater connections</li>
+                    <li contenteditable="true">Fully Turnkey</li>
+                    <li contenteditable="true">Fixed Price</li>
+                    <li contenteditable="true">Single Contract</li>
+                    <li contenteditable="true">No Construction Lending Required</li>
                 </ul>
                 <ul class="feature-bullets" data-field="right-bullets">
-                    <li contenteditable="true">2590mm high ceilings to ground floor</li>
-                    <li contenteditable="true">70mm treated timber framing</li>
-                    <li contenteditable="true">Polytec™ bench tops &amp; melamine doors</li>
-                    <li contenteditable="true">Third-party building inspector &amp; frame QA check</li>
-                    <li contenteditable="true">12-Month Maintenance Warranty</li>
+                    <li contenteditable="true">Stone Benchtops</li>
+                    <li contenteditable="true">Laminate Cupboards throughout the kitchen &amp; bathrooms</li>
+                    <li contenteditable="true">Fully Landscaped Gardens</li>
+                    <li contenteditable="true">Fences to Sides and Rear, Clothesline &amp; Letterbox</li>
                 </ul>
             </div>
         </div>
 
         <footer class="footer-bar">
             <div class="footer-top-line"></div>
-            <div class="footer-contacts" data-field="agent-contact">Georgia | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
             <div class="footer-domain">rpprospects.com</div>
         </footer>
     </section>
@@ -1017,7 +1013,7 @@
 
         <footer class="footer-bar">
             <div class="footer-top-line"></div>
-            <div class="footer-contacts" data-field="agent-contact">Georgia | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
             <div class="footer-domain">rpprospects.com</div>
         </footer>
     </section>
@@ -1046,7 +1042,7 @@
 
         <footer class="footer-bar">
             <div class="footer-top-line"></div>
-            <div class="footer-contacts" data-field="agent-contact">Georgia | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
             <div class="footer-domain">rpprospects.com</div>
         </footer>
     </section>
@@ -1077,7 +1073,7 @@
             </div>
 
             <div class="p4-estate-address-center" data-field="estate-address-block">
-                10 Argentia Circuit (Lot 532)<br>
+                Montrose Estate<br>
                 MORAYFIELD QLD 4506
             </div>
 
@@ -1177,7 +1173,7 @@
 
         <footer class="footer-bar">
             <div class="footer-top-line"></div>
-            <div class="footer-contacts" data-field="agent-contact">Georgia | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
             <div class="footer-domain">rpprospects.com</div>
         </footer>
     </section>
@@ -1251,7 +1247,7 @@
 
         <footer class="footer-bar">
             <div class="footer-top-line"></div>
-            <div class="footer-contacts" data-field="agent-contact">Georgia | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
             <div class="footer-domain">rpprospects.com</div>
         </footer>
     </section>
@@ -1300,7 +1296,7 @@
                 <div class="p5-profile-row">
                     <div class="image-placeholder p5-profile-image" data-field="p5-lifestyle-image">
                         <span>Image</span>
-                        <img src="aminetie_2.webp" alt="Estate Lifestyle Aerial - Parklane Burnside">
+                        <img src="lifestayle.png" alt="Estate Lifestyle Aerial - Parklane Burnside">
                     </div>
                     <div class="p5-profile-info">
                         <div class="p5-profile-label">LIFESTYLE</div>
@@ -1312,7 +1308,7 @@
 
         <footer class="footer-bar">
             <div class="footer-top-line"></div>
-            <div class="footer-contacts" data-field="agent-contact">Georgia | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
             <div class="footer-domain">rpprospects.com</div>
         </footer>
     </section>
@@ -1361,26 +1357,26 @@
 
             <div class="p6-rule"></div>
 
-            <!-- 3 Column Spec Box -->
+            <!-- 3 Column Inclusion Images -->
             <div class="p6-spec-grid">
-                <div class="p6-spec-col">
-                    <strong style="font-size: 11pt; color: var(--brand-red);">35 YEAR</strong>
-                    <span style="font-size: 8pt; font-weight: 700; color: var(--brand-black);">EXPERIENCE</span>
+                <div class="image-placeholder p6-spec-col" data-field="p6-inclusion-one">
+                    <span>Image</span>
+                    <img src="inclusion-one.jpg" alt="Inclusion Image One">
                 </div>
-                <div class="p6-spec-col">
-                    <strong style="font-size: 11pt; color: var(--brand-red);">FIXED PRICE</strong>
-                    <span style="font-size: 8pt; font-weight: 700; color: var(--brand-black);">NO HIDDEN COSTS</span>
+                <div class="image-placeholder p6-spec-col" data-field="p6-inclusion-two">
+                    <span>Image</span>
+                    <img src="inclusion-two.jpg" alt="Inclusion Image Two">
                 </div>
-                <div class="p6-spec-col">
-                    <strong style="font-size: 11pt; color: var(--brand-red);">100% TURNKEY</strong>
-                    <span style="font-size: 8pt; font-weight: 700; color: var(--brand-black);">READY FOR TENANT</span>
+                <div class="image-placeholder p6-spec-col" data-field="p6-inclusion-three">
+                    <span>Image</span>
+                    <img src="inclusion-three.jpg" alt="Inclusion Image Three">
                 </div>
             </div>
         </div>
 
         <footer class="footer-bar">
             <div class="footer-top-line"></div>
-            <div class="footer-contacts" data-field="agent-contact">Georgia | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
             <div class="footer-domain">rpprospects.com</div>
         </footer>
     </section>
@@ -1464,7 +1460,7 @@
 
         <footer class="footer-bar">
             <div class="footer-top-line"></div>
-            <div class="footer-contacts" data-field="agent-contact">Georgia | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
             <div class="footer-domain">rpprospects.com</div>
         </footer>
     </section>
@@ -1543,7 +1539,7 @@
 
         <footer class="footer-bar">
             <div class="footer-top-line"></div>
-            <div class="footer-contacts" data-field="agent-contact">Georgia | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
             <div class="footer-domain">rpprospects.com</div>
         </footer>
     </section>
