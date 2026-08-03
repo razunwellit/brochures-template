@@ -16,6 +16,7 @@
             --brand-light-grey: #EFEFEF;
             --brand-mid-grey: #666666;
             --brand-border-grey: #CCCCCC;
+            --brand-gold: #E89534;
             --page-width: 210mm;
             --page-height: 297mm;
         }
@@ -667,60 +668,138 @@
             border: none;
         }
 
-        /* PAGE 7 SPECIFIC STYLING (INCLUSIONS TEMPLATE) */
-        .p7-inclusions-content {
+        /* PAGE 7 SPECIFIC STYLING (INCLUSIONS - NEW STYLE) */
+        #page-7 .header-bar {
+            margin-bottom: 8px; /* logo box hangs 25px below red strip; columns start below it */
+        }
+
+        #page-7 .page-content {
+            padding-top: 4mm;
+            padding-bottom: 5mm;
+        }
+
+        /* PAGE 7B: hero image tucks up under the red strip / logo box */
+        #page-7b .header-bar {
+            margin-bottom: -25px;
+        }
+
+        #page-7b .page-content {
+            padding-top: 0;
+            padding-bottom: 5mm;
+        }
+
+        .p7-intro {
+            font-size: 8.5pt;
+            font-weight: 400;
+            color: #555555;
+            line-height: 1.45;
+            max-width: 85mm;
+            margin-bottom: 6px;
+        }
+
+        .p7-hero {
+            height: 50mm;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .p7-columns {
+            display: flex;
+            gap: 28px;
             flex: 1;
-            padding: 10px 0;
         }
 
-        .inclusions-category {
-            margin-bottom: 18px;
+        .p7-col {
+            flex: 1;
+            min-width: 0;
         }
 
-        .inclusions-cat-title {
-            font-size: 11pt;
-            font-weight: 800;
-            color: var(--brand-red);
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--brand-red);
-            padding-bottom: 3px;
+        .p7-cat-title {
+            font-size: 12pt;
+            font-weight: 700;
+            color: var(--brand-gold);
+            margin: 8px 0 4px 0;
+            line-height: 1.15;
+        }
+
+        .p7-col > .p7-cat-title:first-child {
+            margin-top: 0;
+        }
+
+        .p7-sub {
             margin-bottom: 8px;
         }
 
-        .inclusions-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px 20px;
+        .p7-sub:last-child {
+            margin-bottom: 0;
+        }
+
+        .p7-sub-title {
+            font-size: 9pt;
+            font-weight: 800;
+            color: #111111;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            border-bottom: 1px solid #8C8C8C;
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+        }
+
+        .p7-list {
             list-style: none;
         }
 
-        .inclusions-list li {
+        .p7-list li {
             font-size: 8.5pt;
-            font-weight: 600;
-            color: var(--brand-black);
+            font-weight: 400;
+            color: #3F3F3F;
+            line-height: 1.24;
             position: relative;
-            padding-left: 14px;
+            padding-left: 10px;
+            margin-bottom: 2px;
         }
 
-        .inclusions-list li::before {
-            content: "✓";
-            color: var(--brand-red);
-            font-weight: 800;
-            position: absolute;
-            left: 0;
+        .p7-list li::before {
+            content: "•";
+            color: #111111;
             font-size: 8.5pt;
+            position: absolute;
+            left: 1px;
+            top: 0;
+            line-height: 10.5pt; /* matches li line-height (8.5pt x 1.24) so the dot centers on the first line */
         }
 
-        .inclusions-notice-box {
-            background-color: #FFF3F3;
-            border: 1px dashed var(--brand-red);
-            padding: 15px;
-            text-align: center;
-            color: var(--brand-red);
+        /* Circled "DS" (Design Specific) marker */
+        .ds {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 13px;
+            height: 13px;
+            border: 1px solid #4A4A4A;
+            border-radius: 50%;
+            font-size: 5.2pt;
             font-weight: 700;
-            font-size: 10pt;
-            margin-top: 20px;
-            border-radius: 4px;
+            color: #333333;
+            line-height: 1;
+            letter-spacing: 0;
+            vertical-align: -2px;
+            margin-left: 2px;
+        }
+
+        .p7-ds-note {
+            align-self: flex-end;
+            text-align: left;
+            font-size: 6.8pt;
+            color: #777777;
+            line-height: 1.35;
+            max-width: 52mm;
+            margin-top: 6px;
+        }
+
+        .p7-ds-note strong {
+            color: #333333;
+            font-weight: 700;
         }
 
         /* PAGE 8 SPECIFIC STYLING (BACK COVER) */
@@ -1382,7 +1461,7 @@
     </section>
 
     <!-- ==========================================
-            PAGE 7: INCLUSIONS (REPEATABLE TEMPLATE)
+            PAGE 7: INCLUSIONS (NEW STYLE)
             ========================================== -->
     <section class="page" id="page-7">
         <header class="header-bar">
@@ -1396,65 +1475,315 @@
         </header>
 
         <div class="page-content">
-            <div class="p7-inclusions-content">
-                <!-- Category 1 -->
-                <div class="inclusions-category">
-                    <div class="inclusions-cat-title">SITE WORKS &amp; CONNECTIONS</div>
-                    <ul class="inclusions-list" contenteditable="true">
-                        <li>Underground power connection, connection to existing water meter, stormwater connection to street outlet, up to 450sqm block, and 6m house setback</li>
-                        <li>Guard Termite Protection: Sheet membrane to the perimeter and retro installation of slab penetration</li>
-                        <li>Up to H1 Soil allowance &amp; N2 Wind Classification</li>
-                        <li>Zero boundary garage wall allowance (up to 400mm fall)</li>
-                        <li>Site disposal provided, regular site cleans, temporary fencing, and erosion control silt barrier</li>
-                        <li>Up to (5) Yard Gullies (maximum allowed)</li>
-                    </ul>
+            <div class="p7-intro" contenteditable="true">A range of fixtures and finishes that have been carefully selected for a quality home.</div>
+
+            <div class="p7-columns">
+                <!-- LEFT COLUMN -->
+                <div class="p7-col">
+                    <div class="p7-cat-title">Kitchen</div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">CABINETRY</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>20mm porcelain benchtop (Dekton - colour as per scheme)</li>
+                            <li>20mm porcelain waterfall gable end/s to Kitchen Island benchtop only (stacked edge) <span class="ds">DS</span></li>
+                            <li>Laminate cabinetry and microwave provision (including pot drawer and cutlery tray) <span class="ds">DS</span></li>
+                            <li>Built-in pantry (4 shelves) laminated / white melamine <span class="ds">DS</span></li>
+                            <li>Walk-in pantry (4 shelves) white melamine <span class="ds">DS</span></li>
+                            <li>Laminate overhead cupboards and plasterboard bulkhead <span class="ds">DS</span></li>
+                            <li>Soft close mechanism to cupboards, drawers and pantry</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">APPLIANCES</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>900mm stainless steel freestanding cooker, with 5 burner gas hob and function electric oven (Westinghouse WFE911SB)</li>
+                            <li>900mm stainless steel canopy rangehood, ducted to exterior (Westinghouse WRC902SD)</li>
+                            <li>Stainless steel underbench dishwasher including water and waste connections (Westinghouse WSF6608XC)</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">SINK &amp; TAPWARE</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Drop-in 1 and 3/4 bowl stainless steel sink with single drainer</li>
+                            <li>Sink mixer (Phoenix Pina, bright chrome finish)</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-cat-title">Bathroom, Ensuite, Powder Room &amp; WC</div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">SHOWER, BATH &amp; TOILET</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Semi-frameless bright chrome glass shower screen with drop down overlap pivot door and bright chrome pull handle</li>
+                            <li>Designer white acrylic bath with tiled hob <span class="ds">DS</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">VANITY</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>20mm porcelain benchtop (Dekton - colour as per scheme)</li>
+                            <li>Laminate finish cabinetry with recessed tiled kick</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">BASIN &amp; TAPWARE</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Semi-inset basin (Fienza Low Profile, gloss white finish)</li>
+                            <li>Basin mounted mixer tap (Phoenix Pina, bright chrome finish)</li>
+                            <li>Wall mounted shower mixer tap (Phoenix Pina, bright chrome finish)</li>
+                            <li>Shower on rail (Phoenix Vivid, bright chrome finish)</li>
+                            <li>Wall mounted bath mixer tap and spout (Phoenix Pina, bright chrome finish)</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">TILES</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Single Storey designs - Builder's Range ceramic full height wall tiling with square set cornice to Ensuite and Bathroom. Skirting tile to WC <span class="ds">DS</span></li>
+                            <li>Double Storey designs - Builder's Range ceramic full height wall tiling with square set cornice to Ensuite, Bathroom, Powder Room and WC <span class="ds">DS</span></li>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Category 2 -->
-                <div class="inclusions-category">
-                    <div class="inclusions-cat-title">SLAB &amp; STRUCTURE</div>
-                    <ul class="inclusions-list" contenteditable="true">
-                        <li>Waffle pod slab with steel reinforcements as per the Engineer's specifications</li>
-                        <li>Concrete slab designed and inspected by a Structural Engineer</li>
-                        <li>Step down to the porch and alfresco (approx. 80mm)</li>
-                        <li>Zero-step threshold from garage to hallway as per NCC2022</li>
-                        <li>Solid ply sheets installed in nominated wet areas as per NCC2022</li>
-                    </ul>
-                </div>
+                <!-- RIGHT COLUMN -->
+                <div class="p7-col">
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">BATHROOM ACCESSORIES</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Frameless polished edge mirror to length of vanity <span class="ds">DS</span></li>
+                            <li>600mm double towel rail in bright chrome finish (one per shower) or robe hooks in bright chrome (two per shower) <span class="ds">DS</span></li>
+                            <li>Toilet roll holder in bright chrome finish</li>
+                        </ul>
+                    </div>
 
-                <!-- Category 3 -->
-                <div class="inclusions-category">
-                    <div class="inclusions-cat-title">WARRANTY &amp; QUALITY ASSURANCE</div>
-                    <ul class="inclusions-list" contenteditable="true">
-                        <li>25 Year Structural Warranty (T&amp;C's apply)</li>
-                        <li>12-Month Maintenance Warranty</li>
-                        <li>Third-party frame quality assurance check</li>
-                        <li>Third-party building inspector throughout the build stage</li>
-                    </ul>
-                </div>
+                    <div class="p7-cat-title">Laundry</div>
 
-                <!-- Category 4 -->
-                <div class="inclusions-category">
-                    <div class="inclusions-cat-title">FRAMING &amp; INTERNAL LININGS</div>
-                    <ul class="inclusions-list" contenteditable="true">
-                        <li>70mm Treated timber framing</li>
-                        <li>2590mm high ceilings to ground floor level with Fibre Cement cladding above windows</li>
-                        <li>10mm plasterboard walls and 10mm span plasterboard ceilings</li>
-                        <li>Water-resistant plaster for wet area walls</li>
-                    </ul>
-                </div>
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">INCLUSIONS</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Freestanding laundry tub (45L, stainless steel, powder coated white cabinet)</li>
+                            <li>Phoenix Ivy MKII sink mixer, bright chrome finish</li>
+                            <li>Builder's Range ceramic floor, skirting and splashback tiles <span class="ds">DS</span></li>
+                        </ul>
+                    </div>
 
-                <!-- Category 5 -->
-                <div class="inclusions-category">
-                    <div class="inclusions-cat-title">KITCHEN</div>
-                    <ul class="inclusions-list" contenteditable="true">
-                        <li>Polytec™ laminate bench tops with 38mm edge</li>
-                        <li>Polytec™ melamine doors from Standard Builder's range</li>
-                        <li>Sink Mixer - Raymor Surrey 35mm 4star/C/P</li>
-                        <li>Essentials Single Bowl Sink 1TH 770mm x 480mm x 201mm deep</li>
-                    </ul>
+                    <div class="p7-cat-title">Internal Inclusions</div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">ROBES &amp; LINENS</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Walk In Robe to Master Suite with one white melamine shelf and chrome hanging rail <span class="ds">DS</span></li>
+                            <li>Built in robes with mirror sliding doors, one white melamine shelf and chrome hanging rail <span class="ds">DS</span></li>
+                            <li>Linen cupboards with hinged or vinyl sliding doors and four white melamine shelves <span class="ds">DS</span></li>
+                            <li>Storage/Broom cupboard with hinged door and one white melamine shelf <span class="ds">DS</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">FLOORING</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Builder's Range ceramic tiles to main Living areas, Entry, Hallways, Kitchen, Walk In Pantry, brooms and linens <span class="ds">DS</span></li>
+                            <li>Builder's Range carpet to Bedrooms (including robes) and Media <span class="ds">DS</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">INTERNAL PAINT</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>2 coat paint system to ceiling and cornice (1 colour)</li>
+                            <li>3 coat paint system to walls, skirting, architraves and doors (1 colour)</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">INTERNAL DOORS &amp; FURNITURE</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Flush-panel doors</li>
+                            <li>Lever-set handles (Lane Profile Series 'Round Rose')</li>
+                            <li>Privacy locks to Master Suite, Bathroom, Powder Room and WC</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">INTERNAL LININGS</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Plasterboard to walls and ceiling (10mm walls, 10mm ceilings)</li>
+                            <li>Moisture Resistant plasterboard to Bathrooms</li>
+                            <li>Cove cornice (90mm)</li>
+                            <li>Architrave and skirting in splayed profile; square profile architrave to wet areas <span class="ds">DS</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">INTERNAL STAIRCASE</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Closed timber staircase, including treads, risers and stringers <span class="ds">DS</span></li>
+                            <li>Painted 1000mm high plasterboard wall balustrade with timber capping <span class="ds">DS</span></li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
+        </div>
+
+        <footer class="footer-bar">
+            <div class="footer-top-line"></div>
+            <div class="footer-contacts" data-field="agent-contact">Georgia Sims | <a href="tel:0400123456" style="color:inherit;text-decoration:none">0400 123 456</a> | <a href="mailto:georgia@rpprospects.com" style="color:inherit;text-decoration:none">georgia@rpprospects.com</a></div>
+            <div class="footer-domain">rpprospects.com</div>
+        </footer>
+    </section>
+
+    <!-- ==========================================
+            PAGE 7B: INCLUSIONS (NEW STYLE, CONTINUED)
+            ========================================== -->
+    <section class="page" id="page-7b">
+        <header class="header-bar">
+            <div class="header-black">
+                <div class="header-title">INCLUSIONS</div>
+                <div class="header-logo-box">
+                    <img src="header-logo.png" alt="RP Prospects Logo" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block">
+                </div>
+            </div>
+            <div class="header-red-strip"></div>
+        </header>
+
+        <div class="page-content">
+            <!-- Hero Image -->
+            <div class="image-placeholder p7-hero" data-field="p7b-hero-image">
+                <span>Hero Image</span>
+                <img src="inclusions-hero.jpg" alt="Kitchen - Inclusion Hero Image">
+            </div>
+
+            <div class="p7-columns">
+                <!-- LEFT COLUMN -->
+                <div class="p7-col">
+                    <div class="p7-cat-title">Sustainability &amp; Services</div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">ELECTRICAL</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Earth leakage system (safety switch)</li>
+                            <li>Single phase meter box installed to external wall</li>
+                            <li>Single and double power points <span class="ds">DS</span></li>
+                            <li>Photoelectric smoke alarm (hardwired, battery backup) <span class="ds">DS</span></li>
+                            <li>TV antenna, phone point, TV point, data point <span class="ds">DS</span></li>
+                            <li>12V LED downlights <span class="ds">DS</span></li>
+                            <li>External wall light and LED ceiling batten light to garage</li>
+                            <li>Exhaust fan / light <span class="ds">DS</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">PLUMBING</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Instantaneous gas hot water system</li>
+                            <li>Two external garden taps</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">HEATING &amp; COOLING</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Ducted air conditioning <span class="ds">DS</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">ENERGY EFFICIENCY</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Insulation batts R4.1 to ceiling</li>
+                            <li>Insulation batts R2.0 to external walls</li>
+                            <li>Reflective 60mm roofing blanket under roof material</li>
+                            <li>3.5kW PV solar electricity system</li>
+                            <li>Ceiling fans (3 blade in white finish) to all Bedrooms, Living areas and Alfresco</li>
+                            <li>Double Storey designs - Low-E glazing to all windows and sliding doors</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-cat-title">Structural &amp; External Inclusions</div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">SITEWORKS, FOOTINGS &amp; SLAB</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Earthworks cut-and-fill</li>
+                            <li>Waffle raft slab system on 'Type S' soil condition (AS2870)</li>
+                            <li>Stormwater and sewer connection</li>
+                            <li>Underground water and electricity connection (single phase)</li>
+                            <li>Termite protection to perimeter and penetrations (AS3660)</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">STRUCTURAL</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>2590mm ceiling height with 2100mm joinery height to entire House including Garage, Porch and Alfresco area (including First Floor to Double Storey designs)</li>
+                            <li>22.5deg roof pitch <span class="ds">DS</span></li>
+                            <li>TRUECORE&reg; structural steel frame</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="p7-col">
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">EXTERNAL FINISHES</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Autoclaved Aerated Concrete (AAC) Cladding with painted render finish</li>
+                            <li>Various lightweight cladding to facade <span class="ds">DS</span></li>
+                            <li>COLORBOND&reg; Custom Orb roofing, gutters and fascias with PVC downpipes</li>
+                            <li>Exposed aggregate concrete (sealed) to Alfresco</li>
+                            <li>Exposed aggregate concrete (sealed) to Driveway and Porch</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">GARAGE</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Sectional overhead garage door with two remotes ('Slimline' profile)</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">OUTDOORS</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Clothesline - wall mounted or fence mounted with sealed exposed aggregate slab</li>
+                            <li>1.8m timber paling fence and gates (where applicable)</li>
+                            <li>Turf, planting, edging and river gravel</li>
+                            <li>Letterbox</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">FRONT DOOR, WINDOWS &amp; SLIDING DOORS</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Single Storey designs - Corinthian 'Urban' paint finished Entry door - 2040mm x 820mm</li>
+                            <li>Double Storey designs - Corinthian 'Infinity INF 6G' stain finished Entry door - 2040mm x 820mm</li>
+                            <li>Entrance lever-set (Lane Profile Series 'Avalon')</li>
+                            <li>Lane (round) single cylinder deadbolt to front entry door</li>
+                            <li>Aluminium powder coated framed windows and glass doors</li>
+                            <li>Perforated aluminium security screens to all opening sashes of windows, sliding glass doors and external hinged doors (excluding Main Entry door)</li>
+                            <li>Keyed locks to windows and sliding doors</li>
+                        </ul>
+                    </div>
+
+                    <div class="p7-sub">
+                        <div class="p7-sub-title">SERVICES &amp; FEES</div>
+                        <ul class="p7-list" contenteditable="true">
+                            <li>Council and QBCC fees (Brisbane City Council)</li>
+                            <li>Engineers soil test and contour survey</li>
+                            <li>Contractors insurance, portable long service and training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Specific Note -->
+            <div class="p7-ds-note"><strong>Design Specific</strong> Availability, quantity or position subject to detail on standard plan</div>
         </div>
 
         <footer class="footer-bar">
