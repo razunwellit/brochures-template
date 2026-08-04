@@ -568,46 +568,35 @@
 
         /* PAGE 5 SPECIFIC STYLING (AREA PROFILE) */
         .p5-profile-rows {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 1fr;
+            gap: 22px;
             flex: 1;
         }
 
         .p5-profile-row {
+            background-color: var(--brand-light-grey);
+            border-top: 3px solid var(--brand-red);
+            padding: 22px 26px;
             display: flex;
-            align-items: flex-start;
-            gap: 30px;
-        }
-
-        .p5-profile-image {
-            width: 190px;
-            height: 145px;
-            flex-shrink: 0;
-            font-size: 9pt;
-            font-weight: 500;
-            text-transform: none;
-            letter-spacing: 0;
-        }
-
-        .p5-profile-info {
-            flex: 1;
+            flex-direction: column;
+            justify-content: flex-start;
         }
 
         .p5-profile-label {
-            font-size: 10.5pt;
-            font-weight: 600;
-            color: var(--brand-mid-grey);
+            font-size: 11pt;
+            font-weight: 800;
+            color: var(--brand-black);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
+            margin-bottom: 7px;
         }
 
         .p5-profile-text {
             font-size: 8.5pt;
             color: var(--brand-dark-grey);
-            line-height: 1.45;
-            margin-top: 5px;
-            max-width: 130mm;
+            line-height: 1.5;
         }
 
         /* PAGE 6 SPECIFIC STYLING (BUILDER INFORMATION) */
@@ -1271,50 +1260,26 @@
             <div class="p5-profile-rows">
                 <!-- EDUCATION -->
                 <div class="p5-profile-row">
-                    <div class="image-placeholder p5-profile-image" data-field="p5-education-image">
-                        <span>Image</span>
-                        <img src="school.jpg" alt="Local School and Education Campus">
-                    </div>
-                    <div class="p5-profile-info">
-                        <div class="p5-profile-label">EDUCATION</div>
-                        <div class="p5-profile-text" contenteditable="true">Quality schooling options nearby include Morayfield State School, Morayfield State High School and several private colleges, with TAFE Queensland's Caboolture campus just a short drive away.</div>
-                    </div>
+                    <div class="p5-profile-label">EDUCATION</div>
+                    <div class="p5-profile-text" contenteditable="true">Quality schooling options nearby include Morayfield State School, Morayfield State High School and several private colleges, with TAFE Queensland's Caboolture campus just a short drive away.</div>
                 </div>
 
                 <!-- SHOPPING MALL -->
                 <div class="p5-profile-row">
-                    <div class="image-placeholder p5-profile-image" data-field="p5-shopping-image">
-                        <span>Image</span>
-                        <img src="park-recreation.jpg" alt="Shopping Mall Interior">
-                    </div>
-                    <div class="p5-profile-info">
-                        <div class="p5-profile-label">SHOPPING MALL</div>
-                        <div class="p5-profile-text" contenteditable="true">Morayfield Shopping Centre is only 5 minutes away, anchored by major supermarkets and over 160 specialty stores, plus dining precincts and a cinema. Caboolture CBD adds further retail and services.</div>
-                    </div>
+                    <div class="p5-profile-label">SHOPPING MALL</div>
+                    <div class="p5-profile-text" contenteditable="true">Morayfield Shopping Centre is only 5 minutes away, anchored by major supermarkets and over 160 specialty stores, plus dining precincts and a cinema. Caboolture CBD adds further retail and services.</div>
                 </div>
 
                 <!-- PARK AND RECREATION -->
                 <div class="p5-profile-row">
-                    <div class="image-placeholder p5-profile-image" data-field="p5-park-image">
-                        <span>Image</span>
-                        <img src="life-style.jpg" alt="Family Picnic in Local Park">
-                    </div>
-                    <div class="p5-profile-info">
-                        <div class="p5-profile-label">PARK AND RECREATION</div>
-                        <div class="p5-profile-text" contenteditable="true">Direct access to Montrose Parklands &amp; Playgrounds, walking and cycling trails along the Caboolture River, plus local sports grounds, dog parks and community recreation facilities.</div>
-                    </div>
+                    <div class="p5-profile-label">PARK AND RECREATION</div>
+                    <div class="p5-profile-text" contenteditable="true">Direct access to Montrose Parklands &amp; Playgrounds, walking and cycling trails along the Caboolture River, plus local sports grounds, dog parks and community recreation facilities.</div>
                 </div>
 
                 <!-- POPULATION -->
                 <div class="p5-profile-row">
-                    <div class="image-placeholder p5-profile-image" data-field="p5-population-image">
-                        <span>Image</span>
-                        <img src="population.jpg" alt="Busy Shopping Strip - Growing Population">
-                    </div>
-                    <div class="p5-profile-info">
-                        <div class="p5-profile-label">POPULATION</div>
-                        <div class="p5-profile-text" contenteditable="true">One of the fastest-growing suburbs in the Moreton Bay Region, Morayfield's population exceeds 23,000, with strong projected growth driven by new masterplanned communities and infrastructure investment.</div>
-                    </div>
+                    <div class="p5-profile-label">POPULATION</div>
+                    <div class="p5-profile-text" contenteditable="true">One of the fastest-growing suburbs in the Moreton Bay Region, Morayfield's population exceeds 23,000, with strong projected growth driven by new masterplanned communities and infrastructure investment.</div>
                 </div>
 
             </div>
@@ -1345,38 +1310,20 @@
             <div class="p5-profile-rows">
                 <!-- DEMOGRAPHICS -->
                 <div class="p5-profile-row">
-                    <div class="image-placeholder p5-profile-image" data-field="p5-demographics-image">
-                        <span>Image</span>
-                        <img src="demographics.jpg" alt="Aerial View of Local Suburb Demographics">
-                    </div>
-                    <div class="p5-profile-info">
-                        <div class="p5-profile-label">DEMOGRAPHICS</div>
-                        <div class="p5-profile-text" contenteditable="true">The suburb attracts young families and first-home buyers, with a median age of around 32 and predominantly owner-occupied households. Median weekly household incomes sit close to the Queensland average.</div>
-                    </div>
+                    <div class="p5-profile-label">DEMOGRAPHICS</div>
+                    <div class="p5-profile-text" contenteditable="true">The suburb attracts young families and first-home buyers, with a median age of around 32 and predominantly owner-occupied households. Median weekly household incomes sit close to the Queensland average.</div>
                 </div>
 
-                <!-- HEALTHCARE -->
+                <!-- PUBLIC TRANSPORT -->
                 <div class="p5-profile-row">
-                    <div class="image-placeholder p5-profile-image" data-field="p5-healthcare-image">
-                        <span>Image</span>
-                        <img src="public-transport.jpg" alt="Public Transport - Tram Network">
-                    </div>
-                    <div class="p5-profile-info">
-                        <div class="p5-profile-label">PUBLIC TRANSPORT</div>
-                        <div class="p5-profile-text" contenteditable="true">Morayfield Train Station provides direct rail services to Brisbane CBD in under an hour, while local bus routes connect the estate to schools and shopping precincts. The Bruce Highway is only minutes away.</div>
-                    </div>
+                    <div class="p5-profile-label">PUBLIC TRANSPORT</div>
+                    <div class="p5-profile-text" contenteditable="true">Morayfield Train Station provides direct rail services to Brisbane CBD in under an hour, while local bus routes connect the estate to schools and shopping precincts. The Bruce Highway is only minutes away.</div>
                 </div>
 
                 <!-- LIFESTYLE -->
                 <div class="p5-profile-row">
-                    <div class="image-placeholder p5-profile-image" data-field="p5-lifestyle-image">
-                        <span>Image</span>
-                        <img src="lifestayle.png" alt="Estate Lifestyle Aerial - Parklane Burnside">
-                    </div>
-                    <div class="p5-profile-info">
-                        <div class="p5-profile-label">LIFESTYLE</div>
-                        <div class="p5-profile-text" contenteditable="true">A relaxed semi-rural lifestyle with urban convenience — leafy streetscapes and open space combined with cafés, markets and family-friendly amenities, all within 45 minutes of Brisbane and the Sunshine Coast.</div>
-                    </div>
+                    <div class="p5-profile-label">LIFESTYLE</div>
+                    <div class="p5-profile-text" contenteditable="true">A relaxed semi-rural lifestyle with urban convenience — leafy streetscapes and open space combined with cafés, markets and family-friendly amenities, all within 45 minutes of Brisbane and the Sunshine Coast.</div>
                 </div>
             </div>
         </div>
